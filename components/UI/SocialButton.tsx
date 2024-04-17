@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { SocialButtonProps } from '@/@types';
 import { NextPage } from 'next';
 import Image from 'next/image';
 
@@ -8,7 +7,7 @@ const SocialButton: NextPage<SocialButtonProps> = ({
   platform = 'google',
   theme = 'brand',
   supportingText = true,
-  width,
+  className,
   isLoading,
   disabled,
   spinnerColor,
@@ -17,34 +16,34 @@ const SocialButton: NextPage<SocialButtonProps> = ({
 }) => {
   const platformLogos = {
     facebook: {
-      brand: '/assets/images/svgs/social-icons/social-icon.svg',
-      colorWithBrand: '/assets/images/svgs/social-icons/social-icon-1.svg',
-      color: '/assets/images/svgs/social-icons/social-icon-2.svg',
+      brand: '/assets/svgs/social-icons/social-icon.svg',
+      colorWithBrand: '/assets/svgs/social-icons/social-icon-1.svg',
+      color: '/assets/svgs/social-icons/social-icon-2.svg',
     },
     google: {
-      brand: '/assets/images/svgs/social-icons/social-icon-3.svg',
-      colorWithBrand: '/assets/images/svgs/social-icons/social-icon-3.svg',
-      color: '/assets/images/svgs/social-icons/social-icon-4.svg',
+      brand: '/assets/svgs/social-icons/social-icon-3.svg',
+      colorWithBrand: '/assets/svgs/social-icons/social-icon-3.svg',
+      color: '/assets/svgs/social-icons/social-icon-4.svg',
     },
     figma: {
-      brand: '/assets/images/svgs/social-icons/social-icon-5.svg',
-      colorWithBrand: '/assets/images/svgs/social-icons/social-icon-5.svg',
-      color: '/assets/images/svgs/social-icons/social-icon-6.svg',
+      brand: '/assets/svgs/social-icons/social-icon-5.svg',
+      colorWithBrand: '/assets/svgs/social-icons/social-icon-5.svg',
+      color: '/assets/svgs/social-icons/social-icon-6.svg',
     },
     dribble: {
-      brand: '/assets/images/svgs/social-icons/social-icon-10.svg',
-      colorWithBrand: '/assets/images/svgs/social-icons/social-icon-11.svg',
-      color: '/assets/images/svgs/social-icons/social-icon-7.svg',
+      brand: '/assets/svgs/social-icons/social-icon-10.svg',
+      colorWithBrand: '/assets/svgs/social-icons/social-icon-11.svg',
+      color: '/assets/svgs/social-icons/social-icon-7.svg',
     },
     twitter: {
-      brand: '/assets/images/svgs/social-icons/social-icon-12.svg',
-      colorWithBrand: '/assets/images/svgs/social-icons/social-icon-13.svg',
-      color: '/assets/images/svgs/social-icons/social-icon-14.svg',
+      brand: '/assets/svgs/social-icons/social-icon-12.svg',
+      colorWithBrand: '/assets/svgs/social-icons/social-icon-13.svg',
+      color: '/assets/svgs/social-icons/social-icon-14.svg',
     },
     apple: {
-      brand: '/assets/images/svgs/social-icons/social-icon-8.svg',
-      colorWithBrand: '/assets/images/svgs/social-icons/social-icon-15.svg',
-      color: '/assets/images/svgs/social-icons/social-icon-16.svg',
+      brand: '/assets/svgs/social-icons/social-icon-8.svg',
+      colorWithBrand: '/assets/svgs/social-icons/social-icon-15.svg',
+      color: '/assets/svgs/social-icons/social-icon-16.svg',
     },
   };
 
@@ -55,7 +54,6 @@ const SocialButton: NextPage<SocialButtonProps> = ({
     dribble: 'Dribble',
     twitter: 'Twitter',
     apple: 'Apple',
-    // Do the same for other platforms
   };
 
   const color =
@@ -101,10 +99,9 @@ const SocialButton: NextPage<SocialButtonProps> = ({
 
   return (
     <button
-      className={`inline-flex py-2.5 px-4 justify-center items-center gap-3 rounded-lg shadow-shadow/xs border font-semibold ${themeClasses[platform][theme]}`}
+      className={`inline-flex py-2.5 px-4 justify-center items-center gap-3 rounded-lg shadow-shadow/xs border font-semibold ${themeClasses[platform][theme]} ${className}`}
       disabled={disabled || isLoading}
       {...props}
-      style={{ width: width ? width : 'auto' }}
     >
       {isLoading ? (
         <svg

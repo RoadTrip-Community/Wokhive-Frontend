@@ -3,34 +3,21 @@ import React from 'react';
 import Logo from './Logo';
 import { NextPage } from 'next';
 import Button from './UI/Button';
-import { useEffect, useRef, useState } from 'react';
-import { BiUser } from 'react-icons/bi';
-import { RiHome6Line } from 'react-icons/ri';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ROUTES } from '@/constants/routes';
 
 const Navbar: NextPage = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
+    if (innerWidth <= 1024) {
+      if (mobileMenuOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'unset';
       }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
     }
   }, [mobileMenuOpen]);
 
@@ -61,7 +48,7 @@ const Navbar: NextPage = () => {
           <div className='flex flex-col lg:flex-row gap-5 lg:items-center text-[#3A383F] font-medium'>
             <Button
               hierarchy='link'
-              href='/coming-soon'
+              href={ROUTES.ABOUT}
               size='sm'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
             >
@@ -69,7 +56,7 @@ const Navbar: NextPage = () => {
             </Button>
             <Button
               hierarchy='link'
-              href='/coming-soon'
+              href={ROUTES.SERVICES}
               size='sm'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
             >
@@ -77,7 +64,7 @@ const Navbar: NextPage = () => {
             </Button>
             <Button
               hierarchy='link'
-              href='/coming-soon'
+              href={ROUTES.COMINGSOON}
               size='sm'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
             >
@@ -87,38 +74,20 @@ const Navbar: NextPage = () => {
           <div ref={dropdownRef} className='flex flex-col lg:flex-row gap-5 relative pl-3'>
             <Button
               hierarchy='secondary'
-              href='/coming-soon'
+              href={ROUTES.SIGNUP}
               size='sm'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
             >
               Sign up
             </Button>
-            <Button hierarchy='primary' size='sm' onClick={() => setMobileMenuOpen((prevState) => !prevState)}>
+            <Button
+              hierarchy='primary'
+              size='sm'
+              href={ROUTES.SIGNIN}
+              onClick={() => setMobileMenuOpen((prevState) => !prevState)}
+            >
               Sign in
             </Button>
-            {dropdownOpen && (
-              <div className='w-[230px] absolute top-full lg:right-0 mt-4 bg-white rounded shadow-shadow/lg py-1 flex flex-col justify-start border border-gray-200'>
-                <Button
-                  hierarchy='link'
-                  href='/coming-soon'
-                  leftIcon={<BiUser className='text-xl' />}
-                  width='100%'
-                  onClick={() => setMobileMenuOpen((prevState) => !prevState)}
-                >
-                  Sign in as Freelancer
-                </Button>
-                <span className='inline-block border border-gray-200 w-full' />
-                <Button
-                  hierarchy='link'
-                  href='/coming-soon'
-                  leftIcon={<RiHome6Line className='text-xl' />}
-                  width='100%'
-                  onClick={() => setMobileMenuOpen((prevState) => !prevState)}
-                >
-                  Sign in as Client
-                </Button>
-              </div>
-            )}
           </div>
         </div>
       </div>

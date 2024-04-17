@@ -1,9 +1,12 @@
 import React from 'react';
-import FreelancerKyc from '@/components/freelancer/kyc/FreelancerKyc';
-import { NextPage } from 'next';
+import FreelancerKyc from '@/modules/freelancer/kyc/FreelancerKyc';
+import { Metadata, NextPage } from 'next';
 
-const FreelancerKycPage: NextPage = () => {
-  return <FreelancerKyc />;
+export const metadata: Metadata = {
+  title: 'Freelancer KYC',
+  description: 'Complete your KYC as a freelancer on Wokhive',
 };
+
+const FreelancerKycPage: NextPage = () => <FreelancerKyc />;
 
 export default FreelancerKycPage;

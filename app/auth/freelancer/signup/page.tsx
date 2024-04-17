@@ -1,9 +1,12 @@
 import React from 'react';
-import SignUpForm from '@/components/auth/SignUpForm';
-import { NextPage } from 'next';
+import SignUpForm from '@/modules/auth/SignUpForm';
+import { Metadata, NextPage } from 'next';
 
-const FreelancerSignupPage: NextPage = () => {
-  return <SignUpForm userType='freelancer' />;
+export const metadata: Metadata = {
+  title: 'Freelancer Sign Up',
+  description: 'Sign up as a freelancer on Wokhive',
 };
+
+const FreelancerSignupPage: NextPage = () => <SignUpForm userType='FREELANCER' />;
 
 export default FreelancerSignupPage;

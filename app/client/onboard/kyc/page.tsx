@@ -1,9 +1,12 @@
 import React from 'react';
-import ClientKyc from '@/components/client/kyc/ClientKyc';
-import { NextPage } from 'next';
+import ClientKyc from '@/modules/client/kyc/ClientKyc';
+import { Metadata, NextPage } from 'next';
 
-const ClientKycPage: NextPage = () => {
-  return <ClientKyc />;
+export const metadata: Metadata = {
+  title: 'Client KYC',
+  description: 'Complete your KYC as a client on Wokhive',
 };
+
+const ClientKycPage: NextPage = () => <ClientKyc />;
 
 export default ClientKycPage;

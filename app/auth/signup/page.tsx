@@ -1,9 +1,12 @@
 import React from 'react';
-import SignUp from '@/components/auth/SignUp';
-import { NextPage } from 'next';
+import SignUp from '@/modules/auth/SignUp';
+import { Metadata, NextPage } from 'next';
 
-const SignUpPage: NextPage = () => {
-  return <SignUp />;
+export const metadata: Metadata = {
+  title: 'Sign Up',
+  description: 'Sign up for a Wokhive account',
 };
+
+const SignUpPage: NextPage = () => <SignUp />;
 
 export default SignUpPage;

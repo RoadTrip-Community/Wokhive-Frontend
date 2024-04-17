@@ -1,10 +1,8 @@
-import React from 'react';
-
 ///////////////////////////
 ///////////////////////////
 // Component Types(UI)
 
-export type ButtonProps = {
+type ButtonProps = {
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   hierarchy?: 'primary' | 'secondary' | 'tertiary' | 'link';
   leftIcon?: React.ReactNode;
@@ -14,13 +12,13 @@ export type ButtonProps = {
   disabled?: boolean;
   onClick?: () => void;
   children: React.ReactNode;
-  width?: string;
   href?: string;
   spinnerColor?: string;
   spinnerSize?: number;
+  className?: string;
 };
 
-export type InputProps = {
+type InputProps = {
   seeIcon?: boolean;
   size?: 'sm' | 'md';
   inputType?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
@@ -45,14 +43,15 @@ export type InputProps = {
   leadingText?: string;
   trailingButton?: React.ReactNode;
   error?: boolean;
-  width?: string;
+  disabled?: boolean;
+  className?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export type SocialButtonProps = {
+type SocialButtonProps = {
   platform?: 'google' | 'facebook' | 'apple' | 'twitter' | 'figma' | 'dribble';
   theme?: 'brand' | 'colorWithBrand' | 'color';
   supportingText?: boolean;
-  width?: string;
+  className?: string;
   isLoading?: boolean;
   disabled?: boolean;
   spinnerColor?: string;
@@ -61,9 +60,29 @@ export type SocialButtonProps = {
 
 ///////////////////////////
 ///////////////////////////
+// Components
+
+type TeamProps = {
+  name: string;
+  role: string;
+  image: string | StaticImageData;
+  socials: {
+    name: string;
+    link: string;
+  }[];
+};
+
+type TestimonyProps = {
+  testimony: string;
+  name: string;
+  role: string;
+};
+
+///////////////////////////
+///////////////////////////
 // Context Types
 
-export type FreelancerOnboardingContextProps = {
+type FreelancerOnboardingContextProps = {
   experienceLevel: string;
 
   servicesOffered: string[];
@@ -71,8 +90,6 @@ export type FreelancerOnboardingContextProps = {
     spokenLanguages: {
       language: string;
       proficiency: 'Basic' | 'Conversational' | 'Fluent' | null;
-      // disabled: boolean;
-      // proficiencyDisabled: boolean;
     }[];
   };
   setExperienceLevel: React.Dispatch<React.SetStateAction<typeof initialExperienceLevel>>;
@@ -80,27 +97,33 @@ export type FreelancerOnboardingContextProps = {
   setSpokenLanguages: React.Dispatch<React.SetStateAction<typeof initialSpokenLanguages>>;
 };
 
-export type StepsProps = {
+type StepsProps = {
   onComplete: (isComplete: boolean) => void;
 };
 
-export type ClientOnboardingContextProps = {
-  personalInfo: {
-    firstName: string;
-    lastName: string;
-    age: string;
-    gender: string;
-  };
+type personalInfo = {
+  firstName: string;
+  lastName: string;
+  age: string;
+  gender: string;
+};
 
-  careerInfo: {
-    occupation: string;
-    address: string;
-  };
+type careerInfo = {
+  occupation: string;
+  address: string;
+};
 
-  bankInfo: {
-    bankName: string;
-    accountNumber: string;
-  };
+type bankInfo = {
+  bankName: string;
+  accountNumber: string;
+};
+
+type ClientOnboardingContextProps = {
+  personalInfo: personalInfo;
+
+  careerInfo: careerInfo;
+
+  bankInfo: bankInfo;
 
   setPersonalInfo: React.Dispatch<React.SetStateAction<typeof initialPersonalInfo>>;
   setCareerInfo: React.Dispatch<React.SetStateAction<typeof initialCareerInfo>>;
@@ -110,13 +133,30 @@ export type ClientOnboardingContextProps = {
 ///////////////////////////
 // Freelancer Types
 
-export type OnboardingStartScreenProps = {
+type OnboardingStartScreenProps = {
   onStart: () => void;
 };
 
-export type Language = {
+type Language = {
   name: string;
   proficiency: 'Basic' | 'Conversational' | 'Fluent' | null;
   disabled: boolean;
   proficiencyDisabled: boolean;
+};
+
+///////////////////////////
+///////////////////////////
+// Auth Types
+
+type signInProps = {
+  email: string;
+  password: string;
+};
+
+type SignUpProps = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 };

@@ -1,13 +1,12 @@
 import React from 'react';
-import ClientOnboard from '@/components/client/onboard/OnboardClient';
-import { NextPage } from 'next';
+import ClientOnboard from '@/components/client/OnboardClient';
+import { Metadata, NextPage } from 'next';
 
-const ClientOnboardPage: NextPage = () => {
-  return (
-    <main>
-      <ClientOnboard />
-    </main>
-  );
+export const metadata: Metadata = {
+  title: 'Client Onboard',
+  description: 'Onboard as a client on Wokhive',
 };
+
+const ClientOnboardPage: NextPage = () => <ClientOnboard />;
 
 export default ClientOnboardPage;

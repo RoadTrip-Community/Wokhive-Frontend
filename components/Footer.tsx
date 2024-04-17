@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
-import twitter from '@/public/assets/images/svgs/icons/mdi_twitter.svg';
-import linkedin from '@/public/assets/images/svgs/icons/mdi_linkedin.svg';
-import globe from '@/public/assets/images/svgs/icons/ph_globe.svg';
+import twitter from '@/public/assets/svgs/icons/mdi_twitter.svg';
+import linkedin from '@/public/assets/svgs/icons/mdi_linkedin.svg';
+import globe from '@/public/assets/svgs/icons/ph_globe.svg';
 import Image from 'next/image';
 import { NextPage } from 'next';
+import { ROUTES } from '@/constants/routes';
 
 const date: Date = new Date();
 const year: number = date.getFullYear();
@@ -33,37 +34,29 @@ const Footer: NextPage = () => {
             </div>
             <div className='flex flex-col md:flex-row gap-10 md:gap-[200px] lg:gap-20'>
               <div className='flex flex-col gap-1.5'>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/'>
+                <Link className='hover:text-primary-milk-60 transition-all' href={ROUTES.SIGNUP}>
+                  Sign Up
+                </Link>
+                <Link className='hover:text-primary-milk-60 transition-all' href={ROUTES.SIGNIN}>
+                  Login
+                </Link>
+              </div>
+
+              <div className='flex flex-col gap-1.5'>
+                <Link className='hover:text-primary-milk-60 transition-all' href={ROUTES.ABOUT}>
                   About us
                 </Link>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/'>
+                <Link className='hover:text-primary-milk-60 transition-all' href={ROUTES.SERVICES}>
                   Services
                 </Link>
                 <Link className='hover:text-primary-milk-60 transition-all' href='/'>
                   FAQ
                 </Link>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/'>
+                <Link className='hover:text-primary-milk-60 transition-all' href={ROUTES.CONTACT}>
                   Contact us
                 </Link>
                 <Link className='hover:text-primary-milk-60 transition-all' href='/'>
                   Blog
-                </Link>
-              </div>
-              <div className='flex flex-col gap-1.5'>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/'>
-                  Terms
-                </Link>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/'>
-                  Privacy
-                </Link>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/'>
-                  Careers
-                </Link>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/auth/signup'>
-                  Sign Up
-                </Link>
-                <Link className='hover:text-primary-milk-60 transition-all' href='/'>
-                  Login
                 </Link>
               </div>
             </div>
@@ -72,13 +65,28 @@ const Footer: NextPage = () => {
           <div className='flex flex-col gap-6 lg:gap-0 lg:flex-row lg:justify-between lg:items-center'>
             <p className='order-2 lg:order-1'>© {year} WokHive. All rights reserved.</p>
             <div className='flex flex-col md:flex-row gap-4 lg:items-center'>
-              <Link className='hover:text-primary-milk-60 transition-all' href='/'>
+              <Link
+                className='hover:text-primary-milk-60 transition-all'
+                href={ROUTES.PRIVACY}
+                target='_blank'
+                rel='noreferrer'
+              >
                 Privacy Policy
               </Link>
-              <Link className='hover:text-primary-milk-60 transition-all' href='/'>
+              <Link
+                className='hover:text-primary-milk-60 transition-all'
+                href={ROUTES.TERMS}
+                target='_blank'
+                rel='noreferrer'
+              >
                 Terms of Service
               </Link>
-              <Link className='hover:text-primary-milk-60 transition-all' href='/'>
+              <Link
+                className='hover:text-primary-milk-60 transition-all'
+                href={ROUTES.COOKIE}
+                target='_blank'
+                rel='noreferrer'
+              >
                 Cookie Policy
               </Link>
             </div>

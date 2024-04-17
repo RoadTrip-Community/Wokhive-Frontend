@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 'use client';
 import React, { useState } from 'react';
-import { InputProps } from '@/@types';
 import { Eye, EyeSlash } from 'iconsax-react';
 import HelpCircle from '../iconComponent/HelpCircle';
 import AlertCircle from '../iconComponent/AlertCircle';
@@ -12,7 +11,6 @@ const Input: React.FC<InputProps> = ({
   elementType = 'input',
   type = 'default',
   destructive = false,
-  state = 'placeholder',
   label,
   hintText,
   helpIcon,
@@ -20,11 +18,12 @@ const Input: React.FC<InputProps> = ({
   dropdownOptions,
   leadingText,
   trailingButton,
-  width,
   name,
   value,
   onChange,
   register,
+  disabled,
+  className,
   ...rest
 }) => {
   const [tags, setTags] = useState<string[]>([]);
@@ -40,9 +39,9 @@ const Input: React.FC<InputProps> = ({
     md: 'py-2 px-4 text-base',
   };
 
-  const classNames = `inline-flex gap-2 items-center relative bg-white rounded-lg shadow border  ${sizeClasses[size]} ${
+  const classNames = `inline-flex gap-2 items-center relative  rounded-lg shadow border  ${sizeClasses[size]} ${
     destructive ? 'border-error-600' : 'border-gray-300'
-  }`;
+  } ${disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white'} ${className}`;
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && inputValue !== '') {
@@ -54,7 +53,7 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <>
-      <div className='inline-flex flex-col' style={{ width: width ? width : 'auto' }}>
+      <div className='inline-flex flex-col w-full'>
         {label && <label className='mb-1.5 text-gray-700 text-Text-sm font-medium font-inter'>{label}</label>}
         <div className={classNames}>
           {type === 'iconLeading' && icon && <span>{icon}</span>}
@@ -71,8 +70,8 @@ const Input: React.FC<InputProps> = ({
           {type === 'leadingText' && leadingText && <span className=''>{leadingText}</span>}
           {elementType === 'textarea' ? (
             <textarea
-              className={`w-full ${type === 'iconLeading' && icon ? 'pl-10' : ''}`}
-              disabled={state === 'disabled'}
+              className={`w-full resize-none ${type === 'iconLeading' && icon ? 'pl-10' : ''}`}
+              disabled={disabled}
               onKeyDown={type === 'tags' ? handleKeyDown : undefined}
               {...rest}
             />
@@ -82,7 +81,7 @@ const Input: React.FC<InputProps> = ({
               {...(onChange && { onChange })}
               {...(value && { value })}
               className={`w-full`}
-              disabled={state === 'disabled'}
+              disabled={disabled}
               name={name}
               type={inputType === 'password' && isPasswordVisible ? 'text' : inputType}
               onKeyDown={type === 'tags' ? handleKeyDown : undefined}

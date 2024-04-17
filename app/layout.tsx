@@ -4,11 +4,16 @@ import './globals.css';
 import { inter, romela, whyte } from '@/config/fonts';
 import { FreelancerOnboardingProvider } from '@/context/FreelancerOnboardingContext';
 import { ClientOnboardingProvider } from '@/context/ClientOnboardingContext';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
-  title: 'WokHive',
+  title: {
+    default: 'WokHive',
+    template: '%s | WokHive',
+  },
   description: 'Empower your Freelancing career with wokhive',
   keywords: ['freelancing, jobs, remote jobs, work from home, wokhive'],
+  authors: [{ name: 'WokHive', url: 'https://wokhive.com' }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <FreelancerOnboardingProvider>
           <ClientOnboardingProvider>{children}</ClientOnboardingProvider>
         </FreelancerOnboardingProvider>
+        <Toaster />
       </body>
     </html>
   );
