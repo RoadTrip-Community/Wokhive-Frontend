@@ -12,7 +12,7 @@ import signInImg from '@/public/assets/images/freelancer_signup_img.png';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useSignIn } from '@/hooks/signIn';
+import { useSignIn } from '@/hooks/signin';
 import { useGoogleSignIn } from '@/hooks/googleAuth';
 import { ROUTES } from '@/constants/routes';
 

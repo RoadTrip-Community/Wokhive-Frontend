@@ -14,7 +14,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 // import { useRouter } from 'next/navigation';
 import { useSignup } from '@/hooks/signup';
-import { useSignIn } from '@/hooks/signIn';
+import { useSignIn } from '@/hooks/signin';
 import { useGoogleSignUp } from '@/hooks/googleAuth';
 import { useActivateAccount } from '@/hooks/activateAccount';
 import { ROUTES } from '@/constants/routes';
