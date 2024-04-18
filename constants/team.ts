@@ -129,7 +129,7 @@ export const teamData = [
     socials: [
       {
         name: twitter,
-        link: 'https://twitter.com',
+        link: 'twitter.com/buchiddesigner',
       },
     ],
   },
@@ -142,6 +142,14 @@ export const teamData = [
       {
         name: twitter,
         link: 'https://twitter.com/OladipoYuusuf',
+      },
+      {
+        name: linkedin,
+        link: 'https://www.linkedin.com/in/yuusufoladipo/',
+      },
+      {
+        name: globe,
+        link: 'https://oladipoyuusuf.webflow.io/',
       },
     ],
   },
