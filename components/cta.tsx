@@ -4,6 +4,7 @@ import Button from './UI/Button';
 import Image from 'next/image';
 import orangeFlower from '@/public/assets/svgs/cta_orange_flower.svg';
 import blueFlower from '@/public/assets/svgs/cta_blue_flower.svg';
+import Input from './UI/Input';
 
 const CTA: NextPage = () => {
   return (
@@ -40,18 +41,19 @@ const CTA: NextPage = () => {
 
         <div className='h-[227px] w-full rounded-t-2xl' />
 
-        <div className='flex max-w-[1168px] w-full justify-between gap-10 lg:items-center flex-col lg:flex-row relative z-10'>
-          <div className='flex flex-col gap-2 lg:max-w-[648px]'>
-            <h4 className='text-primary-purple-60 text-Display-xs lg:text-Display-extra font-bold'>
-              Sign up today and experience the difference. {"Let's"} hit the road to success together!
+        <div className='flex max-w-[1168px] w-full justify-between gap-10 flex-col lg:flex-row lg:items-end relative z-10'>
+          <div className='flex flex-col gap-2 lg:min-w-[648px] w-full'>
+            <h4 className='text-primary-purple-60 text-Display-xs lg:text-Display-extra font-bold lg:max-w-[484px]'>
+              Join our waitlist and be notified when we go live.
             </h4>
             <p className='self-stretch text-gray-900 text-Text-lg lg:text-Text-xl'>
               {"We're"} not just a platform – {"we're"} your co-pilot on the freelance journey. With Wokhive, {"you'll"}{' '}
               have the tools and support you need to confidently navigate your freelance career.
             </p>
           </div>
-          <div className='min-w-max'>
-            <Button size='lg'>Sign up today</Button>
+          <div className='w-full flex flex-col gap-4'>
+            <Input placeholder='Enter your email address' className='h-[64px]' />
+            <Button size='lg'>Join the Waitlist </Button>
           </div>
         </div>
       </div>

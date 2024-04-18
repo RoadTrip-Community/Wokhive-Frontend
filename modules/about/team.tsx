@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Team: NextPage<TeamProps> = ({ name, role, image, socials }) => {
   return (
-    <div className='flex p-6 flex-col flex-1 self-stretch items-center gap-5 min-w-[280px] w-full max-w-[280px] h-[252px] rounded'>
+    <div className='flex p-6 flex-col flex-[1_0_0] self-stretch items-center gap-5 min-w-[260px] w-full max-w-[260px]  rounded bg-gray-25'>
       <div className='flex justify-center items-center rounded-full min-w-[96px] min-h-[96px] w-full h-full max-w-[96px] max-h-[96px] overflow-hidden border'>
         <Image src={image} alt={name} width={96} height={96} className='w-full h-full object-cover' />
       </div>

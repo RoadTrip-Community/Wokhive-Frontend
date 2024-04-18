@@ -2,11 +2,17 @@ import twitter from '@/public/assets/svgs/icons/twitter.svg';
 import linkedin from '@/public/assets/svgs/icons/linkedin.svg';
 import dribble from '@/public/assets/svgs/icons/dribble.svg';
 import github from '@/public/assets/svgs/icons/github.svg';
+import globe from '@/public/assets/svgs/icons/globe.svg';
+import behance from '@/public/assets/svgs/icons/behance.svg';
+// Images
 import mariam from '@/public/assets/images/mariam.png';
 import donald from '@/public/assets/images/donald.png';
 import ayomidotun from '@/public/assets/images/ayomidotun.png';
 import jennifer from '@/public/assets/images/jennifer.png';
 import pascal from '@/public/assets/images/pascal.png';
+import michael from '@/public/assets/images/michael.png';
+import oladipo from '@/public/assets/images/oladipo.png';
+import obinna from '@/public/assets/images/obinna.png';
 
 export const teamData = [
   {
@@ -16,15 +22,11 @@ export const teamData = [
     socials: [
       {
         name: twitter,
-        link: 'https://twitter.com',
+        link: 'twitter.com/_marie_abd',
       },
       {
         name: linkedin,
-        link: 'https://linkedin.com',
-      },
-      {
-        name: dribble,
-        link: 'https://dribble.com',
+        link: 'https://www.linkedin.com/in/mariam-abdulganiyu-9485371a3',
       },
     ],
   },
@@ -42,15 +44,15 @@ export const teamData = [
         link: 'https://linkedin.com/in/ayomidotun-olufemi',
       },
       {
-        name: dribble,
-        link: 'https://www.behance.net/ayomidxtun',
+        name: globe,
+        link: 'https://bento.me/ayomidotun',
       },
     ],
   },
   {
     name: 'Obinna Chidi',
     role: 'Frontend Developer',
-    image: 'https://picsum.photos/200/300',
+    image: obinna,
     socials: [
       {
         name: twitter,
@@ -77,7 +79,7 @@ export const teamData = [
       },
 
       {
-        name: dribble,
+        name: globe,
         link: 'https://read.cv/26.svg',
       },
     ],
@@ -85,19 +87,19 @@ export const teamData = [
   {
     name: 'Edo Michael',
     role: 'Product Designer',
-    image: 'https://picsum.photos/200/300',
+    image: michael,
     socials: [
       {
         name: twitter,
-        link: 'https://twitter.com',
+        link: 'https://twitter.com/mk3dits',
       },
       {
         name: linkedin,
-        link: 'https://linkedin.com',
+        link: 'https://www.linkedin.com/in/michael-edo-b38414220/',
       },
       {
         name: dribble,
-        link: 'https://dribble.com',
+        link: 'https://dribbble.com/mk3dits',
       },
     ],
   },
@@ -115,8 +117,8 @@ export const teamData = [
         link: 'https://www.linkedin.com/in/jennifer-obuseri-57497497',
       },
       {
-        name: dribble,
-        link: 'https://dribble.com',
+        name: behance,
+        link: 'https://www.behance.net/jenniferpaul9',
       },
     ],
   },
@@ -129,58 +131,13 @@ export const teamData = [
         name: twitter,
         link: 'https://twitter.com',
       },
-      {
-        name: linkedin,
-        link: 'https://linkedin.com',
-      },
-      {
-        name: dribble,
-        link: 'https://dribble.com',
-      },
     ],
   },
-  // {
-  //   name: 'Wonderful Ayo',
-  //   role: 'Backend Developer',
-  //   image: 'https://picsum.photos/200/300',
-  //   socials: [
-  //     {
-  //       name: twitter,
-  //       link: 'https://twitter.com',
-  //     },
-  //     {
-  //       name: linkedin,
-  //       link: 'https://linkedin.com',
-  //     },
-  //     {
-  //       name: github,
-  //       link: 'https://github.com',
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: 'Damilare Ogunmakin',
-  //   role: 'Backend Developer',
-  //   image: 'https://picsum.photos/200/300',
-  //   socials: [
-  //     {
-  //       name: twitter,
-  //       link: 'https://twitter.com',
-  //     },
-  //     {
-  //       name: linkedin,
-  //       link: 'https://linkedin.com',
-  //     },
-  //     {
-  //       name: github,
-  //       link: 'https://github.com',
-  //     },
-  //   ],
-  // },
+
   {
     name: 'Oladipo Yuusuf Oyelola',
     role: 'UX Writer/Content Designer',
-    image: 'https://picsum.photos/200/300',
+    image: oladipo,
     socials: [
       {
         name: twitter,

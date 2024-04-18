@@ -11,8 +11,8 @@ export const ROUTES = {
   COOKIE: '/legal/cookie-policy',
 
   // auth
-  SIGNIN: '/auth/signin',
-  SIGNUP: '/auth/signup',
+  SIGNIN: '/#waitlist',
+  SIGNUP: '/#waitlist',
   FORGOTPASSWORD: '/auth/forgot-password',
   RESETPASSWORD: '/auth/reset-password',
   RESETSUCCESS: '/auth/reset-password/success',

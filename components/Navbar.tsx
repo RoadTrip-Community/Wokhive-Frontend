@@ -73,20 +73,12 @@ const Navbar: NextPage = () => {
           </div>
           <div ref={dropdownRef} className='flex flex-col lg:flex-row gap-5 relative pl-3'>
             <Button
-              hierarchy='secondary'
-              href={ROUTES.SIGNUP}
-              size='sm'
-              onClick={() => setMobileMenuOpen((prevState) => !prevState)}
-            >
-              Sign up
-            </Button>
-            <Button
               hierarchy='primary'
               size='sm'
-              href={ROUTES.SIGNIN}
+              href='/#waitlist'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
             >
-              Sign in
+              Join waitlist
             </Button>
           </div>
         </div>

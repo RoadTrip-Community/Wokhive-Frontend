@@ -9,7 +9,10 @@ import Button from '@/components/UI/Button';
 const JoinProgram: NextPage = () => {
   return (
     <>
-      <section className='px-8 pt-16 lg:pt-[91px] pb-[109px] lg:pb-36 flex flex-col  lg:flex-row items-center lg:items-stretch justify-center max-w-[1440px] mx-auto'>
+      <section
+        id='waitlist'
+        className='px-8 pt-16 lg:pt-[91px] pb-[109px] lg:pb-36 flex flex-col  lg:flex-row items-center lg:items-stretch justify-center max-w-[1440px] mx-auto'
+      >
         <div className='bg-[#F7F5FB] rounded-t-lg lg:rounded-l-2xl lg:rounded-t-none relative overflow-hidden w-full max-w-[573px]'>
           <Image
             alt='newsletter'
