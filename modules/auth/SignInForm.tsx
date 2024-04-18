@@ -12,23 +12,24 @@ import signInImg from '@/public/assets/images/freelancer_signup_img.png';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useSignIn } from '@/hooks/signin';
-import toast from 'react-hot-toast';
+import { useSignIn } from '@/hooks/signIn';
+import { useGoogleSignIn } from '@/hooks/googleAuth';
 import { ROUTES } from '@/constants/routes';
 
-const SignInForm: NextPage = () => {
-  const { signIn, loading } = useSignIn();
+const signInSchema = z.object({
+  email: z.string().email({ message: 'Please enter a valid email' }),
+  password: z
+    .string()
+    .min(8, { message: 'Password must be at least 8 characters' })
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/, {
+      message:
+        'Password must contain at least one uppercase letter, one lowercase letter, one number and one special character',
+    }),
+});
 
-  const signInSchema = z.object({
-    email: z.string().email({ message: 'Please enter a valid email' }),
-    password: z
-      .string()
-      .min(8, { message: 'Password must be at least 8 characters' })
-      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, {
-        message:
-          'Password must contain at least one uppercase letter, one lowercase letter, one number and one special character',
-      }),
-  });
+const SignInForm: NextPage = () => {
+  const signInMutation = useSignIn();
+  const googleSignInMutation = useGoogleSignIn();
 
   const {
     register: formRegister,
@@ -40,18 +41,15 @@ const SignInForm: NextPage = () => {
   });
 
   const onSubmit = async (data: signInProps) => {
-    try {
-      const res = await signIn(data);
-      console.log('res', res);
-      reset();
-    } catch (error: Error | any) {
-      console.log('error', error);
-      toast.error(error.response?.data.message || 'Sorry an error occurred while processing your request.', {
-        duration: 4000,
-        position: 'top-right',
-        id: 'error-toast',
-      });
-    }
+    await signInMutation.mutateAsync(data, {
+      onSuccess: () => reset(),
+    });
+  };
+
+  const role = 'freelancer';
+
+  const onGoogleSignIn = async () => {
+    await googleSignInMutation.mutateAsync(role);
   };
 
   return (
@@ -66,7 +64,14 @@ const SignInForm: NextPage = () => {
             <h3 className='text-gray-900 text-Display-xs font-medium'>Sign in</h3>
 
             <div className='flex w-full flex-col items-start gap-6'>
-              <SocialButton platform='google' theme='brand' className='w-full' supportingText />
+              <SocialButton
+                platform='google'
+                theme='brand'
+                className='w-full'
+                supportingText
+                disabled={signInMutation.isPending}
+                onClick={onGoogleSignIn}
+              />
               <div className='w-full border relative'>
                 <p className='text-gray-900 text-Text-sm px-4 bg-white absolute bottom-[calc(50%-10px)] left-1/2'>or</p>
               </div>
@@ -82,7 +87,8 @@ const SignInForm: NextPage = () => {
                       placeholder='janedoe@gmail.com'
                       register={formRegister}
                       className='w-full'
-                      disabled={loading}
+                      disabled={signInMutation.isPending}
+                      hintText={errors.email?.message}
                     />
                     <Input
                       destructive={errors.password?.message}
@@ -92,7 +98,8 @@ const SignInForm: NextPage = () => {
                       placeholder='********'
                       register={formRegister}
                       className='w-full'
-                      disabled={loading}
+                      disabled={signInMutation.isPending}
+                      hintText={errors.password?.message}
                     />
                   </div>
                   <Link className='text-gray-900 text-Text-md font-medium' href={ROUTES.FORGOTPASSWORD}>
@@ -100,7 +107,13 @@ const SignInForm: NextPage = () => {
                   </Link>
                 </div>
 
-                <Button hierarchy='primary' size='xl' className='w-full' isLoading={loading}>
+                <Button
+                  hierarchy='primary'
+                  size='xl'
+                  className='w-full'
+                  isLoading={signInMutation.isPending}
+                  disabled={signInMutation.isPending}
+                >
                   Sign in
                 </Button>
               </form>

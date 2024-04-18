@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { NextPage } from 'next';
 import Image from 'next/image';
@@ -12,7 +11,7 @@ const SocialButton: NextPage<SocialButtonProps> = ({
   disabled,
   spinnerColor,
   spinnerSize,
-  ...props
+  onClick,
 }) => {
   const platformLogos = {
     facebook: {
@@ -101,7 +100,7 @@ const SocialButton: NextPage<SocialButtonProps> = ({
     <button
       className={`inline-flex py-2.5 px-4 justify-center items-center gap-3 rounded-lg shadow-shadow/xs border font-semibold ${themeClasses[platform][theme]} ${className}`}
       disabled={disabled || isLoading}
-      {...props}
+      onClick={onClick}
     >
       {isLoading ? (
         <svg

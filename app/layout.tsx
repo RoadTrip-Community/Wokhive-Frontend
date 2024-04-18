@@ -5,6 +5,7 @@ import { inter, romela, whyte } from '@/config/fonts';
 import { FreelancerOnboardingProvider } from '@/context/FreelancerOnboardingContext';
 import { ClientOnboardingProvider } from '@/context/ClientOnboardingContext';
 import { Toaster } from 'react-hot-toast';
+import { ReactQueryClientProvider } from '@/utils/ReactQueryProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -20,10 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={`${inter.variable} ${whyte.variable} ${romela.variable} min-w-[340px]`}>
-        <FreelancerOnboardingProvider>
-          <ClientOnboardingProvider>{children}</ClientOnboardingProvider>
-        </FreelancerOnboardingProvider>
-        <Toaster />
+        <ReactQueryClientProvider>
+          <FreelancerOnboardingProvider>
+            <ClientOnboardingProvider>{children}</ClientOnboardingProvider>
+          </FreelancerOnboardingProvider>
+          <Toaster />
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

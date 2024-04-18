@@ -56,6 +56,7 @@ type SocialButtonProps = {
   disabled?: boolean;
   spinnerColor?: string;
   spinnerSize?: number;
+  onClick?: () => void;
 };
 
 ///////////////////////////
@@ -76,6 +77,21 @@ type TestimonyProps = {
   testimony: string;
   name: string;
   role: string;
+};
+
+type ToastUIProps = {
+  type: 'success' | 'error' | 'loading' | 'custom';
+  message: string;
+  duration?: number;
+  position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+  style?: React.CSSProperties;
+  className?: string;
+  iconTheme?: {
+    primary: string;
+    secondary: string;
+  };
+  icon?: JSX.Element | string | null;
+  id?: string;
 };
 
 ///////////////////////////
@@ -154,9 +170,10 @@ type signInProps = {
 };
 
 type SignUpProps = {
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
+  role?: string;
 };

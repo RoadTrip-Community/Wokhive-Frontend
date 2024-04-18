@@ -26,4 +26,4 @@ export const ROUTES = {
   ONBOARDCLIENT: '/client/onboard',
 };
 
-export const apiBaseUrl = 'https://wokhive-backend-python.onrender.com';
+export const API_BASE_URL = 'https://wokhive-backend-python.onrender.com/api/v1/';

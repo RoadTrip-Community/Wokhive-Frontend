@@ -12,35 +12,39 @@ import bgOverlay from '@/public/assets/svgs/signup_bg.svg';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useSignup } from '@/hooks/signup';
-import { useSignIn } from '@/hooks/signin';
-import toast from 'react-hot-toast';
+import { useSignIn } from '@/hooks/signIn';
+import { useGoogleSignUp } from '@/hooks/googleAuth';
+import { useActivateAccount } from '@/hooks/activateAccount';
 import { ROUTES } from '@/constants/routes';
+import { generateRandomString } from '@/helpers/validation';
 
 type SignupFormProps = {
   userType: 'CLIENT' | 'FREELANCER';
 };
 
+const signUpSchema = z.object({
+  first_name: z.string().min(1, { message: 'First name must not be empty' }),
+  last_name: z.string().min(1, { message: 'Last name must not be empty' }),
+  email: z.string().email({ message: 'Please enter a valid email' }),
+  password: z
+    .string()
+    .min(8, { message: 'Password must be at least 8 characters' })
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, {
+      message:
+        'Password must contain at least one uppercase letter, one lowercase letter, one number and one special character',
+    }),
+  confirmPassword: z.string().min(8, { message: 'Password must be at least 8 characters' }),
+});
+
 const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
-  const router = useRouter();
-  const { loading, signup, activateAccount } = useSignup();
-  const { signIn } = useSignIn();
-
-  const signUpSchema = z.object({
-    firstName: z.string().min(1, { message: 'First name must not be empty' }),
-    lastName: z.string().min(1, { message: 'Last name must not be empty' }),
-    email: z.string().email({ message: 'Please enter a valid email' }),
-    password: z
-      .string()
-      .min(8, { message: 'Password must be at least 8 characters' })
-      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, {
-        message:
-          'Password must contain at least one uppercase letter, one lowercase letter, one number and one special character',
-      }),
-    confirmPassword: z.string().min(8, { message: 'Password must be at least 8 characters' }),
-  });
-
+  // const router = useRouter();
+  const signUpMutation = useSignup();
+  const signInMutation = useSignIn();
+  const googleSignUpMutation = useGoogleSignUp();
+  const activateAccountMutation = useActivateAccount();
+  const state = generateRandomString(16);
   const {
     register: formRegister,
     handleSubmit,
@@ -52,7 +56,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
   });
 
   const onSubmit = async (data: SignUpProps) => {
-    const { password, confirmPassword, email, firstName, lastName } = data;
+    const { password, confirmPassword, email, first_name, last_name } = data;
     if (password !== confirmPassword) {
       setError('confirmPassword', {
         message: 'Passwords do not match',
@@ -60,46 +64,28 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
       return;
     }
 
-    try {
-      const res = await signup({
+    await signUpMutation.mutateAsync(
+      {
         email,
         password,
-        first_name: firstName,
-        last_name: lastName,
+        first_name,
+        last_name,
         role: userType.toLowerCase(),
-      });
-      toast.success(res?.data.message, {
-        duration: 4000,
-        position: 'top-right',
-      });
-      console.log('res', res);
+      },
+      {
+        onSuccess: async (res) => {
+          const { token } = (await res).data;
+          await activateAccountMutation.mutateAsync({ token, email });
+          await signInMutation.mutateAsync({ email, password });
+          // router.push(ROUTES[`ONBOARD${userType}`]);
+          reset();
+        },
+      },
+    );
+  };
 
-      const { token } = await res.data?.data;
-      console.log('token', token);
-      const activationRes = await activateAccount(token, email);
-      toast.success(activationRes?.data.message, {
-        duration: 4000,
-        position: 'top-right',
-      });
-      console.log('activationRes', activationRes);
-
-      const signInRes = await signIn({ email, password });
-      toast.success(signInRes?.data.message, {
-        duration: 4000,
-        position: 'top-right',
-      });
-      console.log('signInRes', signInRes);
-
-      router.push(ROUTES[`ONBOARD${userType}`]);
-
-      reset();
-    } catch (error: Error | any) {
-      console.log(error);
-      toast.error(error.response?.data.message || 'Sorry an error occurred while processing your request.', {
-        duration: 4000,
-        position: 'top-right',
-      });
-    }
+  const googleSignUp = async () => {
+    await googleSignUpMutation.mutateAsync(state);
   };
 
   return (
@@ -114,7 +100,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
             <h3 className='text-gray-900 text-Display-xs font-medium'>Sign up as a {userType.toLowerCase()}</h3>
 
             <div className='flex w-full flex-col items-start gap-6'>
-              <SocialButton disabled={loading} className='w-full' />
+              <SocialButton disabled={signUpMutation.isPending} className='w-full' onClick={googleSignUp} />
               <div className='w-full border relative'>
                 <p className='text-gray-900 text-Text-sm px-4 bg-white absolute bottom-[calc(50%-10px)] left-1/2'>or</p>
               </div>
@@ -129,25 +115,25 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
                   <div className='flex w-full flex-col items-start gap-6'>
                     <div className='flex w-full items-start gap-5'>
                       <Input
-                        destructive={!!errors.firstName}
-                        disabled={loading}
+                        destructive={!!errors.first_name}
+                        disabled={signUpMutation.isPending}
                         label='First name'
-                        name='firstName'
+                        name='first_name'
                         placeholder='Jane'
                         register={formRegister}
                       />
                       <Input
-                        destructive={!!errors.lastName}
-                        disabled={loading}
+                        destructive={!!errors.last_name}
+                        disabled={signUpMutation.isPending}
                         label='Last name'
-                        name='lastName'
+                        name='last_name'
                         placeholder='Doe'
                         register={formRegister}
                       />
                     </div>
                     <Input
                       destructive={!!errors.email}
-                      disabled={loading}
+                      disabled={signUpMutation.isPending}
                       inputType='email'
                       label='Email address'
                       name='email'
@@ -157,7 +143,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
                     />
                     <Input
                       destructive={!!errors.password}
-                      disabled={loading}
+                      disabled={signUpMutation.isPending}
                       hintText={errors.password?.message || 'Must be at least 8 characters'}
                       inputType='password'
                       label='Enter password'
@@ -168,7 +154,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
                     />
                     <Input
                       destructive={!!errors.confirmPassword}
-                      disabled={loading}
+                      disabled={signUpMutation.isPending}
                       hintText={errors.confirmPassword?.message || 'Must be the same password you entered earlier'}
                       inputType='password'
                       label='Confirm password'
@@ -179,7 +165,13 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
                     />
                   </div>
                 </div>
-                <Button hierarchy='primary' isLoading={loading} size='xl' className='w-full'>
+                <Button
+                  hierarchy='primary'
+                  isLoading={signUpMutation.isPending}
+                  disabled={signUpMutation.isPending}
+                  size='xl'
+                  className='w-full'
+                >
                   Create account
                 </Button>
               </form>

@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { useState } from 'react';
 import axios from 'axios';
-import { apiBaseUrl } from '@/constants/routes';
+import { API_BASE_URL } from '@/constants/routes';
 import { getCookie } from 'cookies-next';
 
 export const useUpdateClientProfile = () => {
@@ -11,7 +11,7 @@ export const useUpdateClientProfile = () => {
     setLoading(true);
     try {
       const token = getCookie('token');
-      const response = await axios.patch(`${apiBaseUrl}/api/v1/users/client/profile/edit`, JSON.stringify(data), {
+      const response = await axios.patch(`${API_BASE_URL}/api/v1/users/client/profile/edit`, JSON.stringify(data), {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
