@@ -129,7 +129,7 @@ export const teamData = [
     socials: [
       {
         name: twitter,
-        link: 'twitter.com/buchiddesigner',
+        link: 'https://twitter.com/buchiddesigner',
       },
     ],
   },
