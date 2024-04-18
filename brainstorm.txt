@@ -1,0 +1,78 @@
+/Wokhive
+|-- /public
+|   |-- images
+|       |-- logo.png
+|-- /components
+|   |-- Header.js
+|   |-- Footer.js
+|   |-- ...
+|-- /app
+|   |-- favicon.ico
+|   |-- globals.css
+|   |-- layout.tsx
+|   |-- page.js
+|   |-- about
+|   |   |-- page.js
+|   |-- contact
+|   |   |-- page.js
+|   |-- blog
+|   |   |-- page.js
+|   |-- |-- [slug]
+|   |   |-- |-- page.js
+|   |-- ...
+|-- /api
+|   |-- user
+|   |   |-- route.js
+|   |-- post
+|   |   |-- route.js
+|   |-- [slug]
+|   |   |-- route.js
+|   |-- ...
+|-- /utils
+|   |-- api.js
+|   |-- helpers.js
+|   |-- ...
+|-- /constants
+|   |-- routes.js
+|   |-- config.js
+|   |-- ...
+|-- /hooks
+|   |-- useAuth.js
+|   |-- useFetch.js
+|   |-- ...
+|-- /context
+|   |-- AuthContext.js
+|   |-- ThemeContext.js
+|   |-- ...
+|-- /tests
+|   |-- unit
+|   |   |-- header.test.js
+|   |   |-- ...
+|   |-- integration
+|   |   |-- api.test.js
+|   |   |-- ...
+|   |-- ...
+|-- /libs
+|   |-- analytics.js
+|   |-- validation.js
+|   |-- ...
+|-- /helpers
+|   |-- date.js
+|   |-- string.js
+|   |-- ...
+|-- /modules
+|   |-- feature1
+|   |   |-- Feature1Component.js
+|   |   |-- Feature1Service.js
+|   |   |-- ...
+|   |-- feature2
+|   |   |-- Feature2Component.js
+|   |   |-- Feature2Service.js
+|   |   |-- ...
+|-- next.config.js
+|-- tsconfig.json
+|-- package.json
+|-- .eslintrc.js
+|-- .prettierrc
+|-- .gitignore
+|-- README.md

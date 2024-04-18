@@ -1,5 +1,4 @@
 'use client';
-import { ClientOnboardingContextProps } from '@/@types';
 import { NextPage } from 'next';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 

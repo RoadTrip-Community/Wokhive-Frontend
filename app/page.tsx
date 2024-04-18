@@ -1,9 +1,7 @@
 import React from 'react';
 import { NextPage } from 'next';
-import HomePage from '@/components/LandingPage/HomePage';
+import HomePage from '@/components/pages/HomePage';
 
-const Home: NextPage = () => {
-  return <HomePage />;
-};
+const Home: NextPage = () => <HomePage />;
 
 export default Home;

@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { NextPage } from 'next';
-import { ButtonProps } from '@/@types';
 
 const Button: NextPage<ButtonProps> = ({
   size = 'md',
@@ -14,9 +13,9 @@ const Button: NextPage<ButtonProps> = ({
   onClick,
   children,
   href,
-  width,
   spinnerColor,
   spinnerSize,
+  className,
   ...props
 }) => {
   const sizeClasses: { [key: string]: string } = {
@@ -44,17 +43,11 @@ const Button: NextPage<ButtonProps> = ({
 
   const classNames = `outline-none transition-all flex items-center ${href ? 'justify-start' : 'justify-center'} ${
     sizeClasses[size]
-  } ${hierarchyClasses[hierarchy]} ${isLoading ? 'opacity-50' : ''}`;
+  } ${hierarchyClasses[hierarchy]} ${isLoading ? 'opacity-50' : ''} ${className}`;
 
   if (href) {
     return (
-      <Link
-        className={`flex ${classNames}`}
-        href={href}
-        {...props}
-        style={{ width: width ? width : 'max-content' }}
-        onClick={onClick}
-      >
+      <Link className={`flex ${classNames}`} href={href} {...props} onClick={onClick}>
         <>
           {leftIcon && <span>{leftIcon}</span>}
           {children}
@@ -68,7 +61,6 @@ const Button: NextPage<ButtonProps> = ({
     <button
       className={classNames}
       disabled={disabled || isLoading}
-      style={{ width: width ? width : 'max-content' }}
       onClick={onClick}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}

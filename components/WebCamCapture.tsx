@@ -27,7 +27,7 @@ const WebcamCapture: NextPage<{ setImage: any; image: any }> = ({ setImage, imag
           />
         </div>
         <div className='flex gap-4'>
-          <Button hierarchy='secondary' width='230px' onClick={() => setImage(null)}>
+          <Button hierarchy='secondary' className='w-[230px]' onClick={() => setImage(null)}>
             Retake picture
           </Button>
           <svg
@@ -41,12 +41,11 @@ const WebcamCapture: NextPage<{ setImage: any; image: any }> = ({ setImage, imag
             <circle cx='23.9969' cy='23.9998' fill='#423366' r='19.2' />
             <circle cx='24' cy='24' r='23.5' stroke='#667085' />
           </svg>
-          <Button hierarchy='primary' width='230px' onClick={() => {}}>
+          <Button hierarchy='primary' className='w-[230px]' onClick={() => {}}>
             Use picture
           </Button>
         </div>
       </div>
-      {/* {capturedImage && <Image src={capturedImage} alt='Captured' width={539} height={295} className='hidden' />} */}
     </>
   );
 };
