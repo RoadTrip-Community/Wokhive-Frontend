@@ -24,7 +24,7 @@ const Contact: NextPage = () => {
         </section>
 
         <section className='w-full flex flex-col gap-16 lg:gap-28 lg:flex-row'>
-          <div className='flex flex-col self-stretch rounded-l-lg bg-primary-purple-50 h-[460px] lg:h-auto lg:order-2 w-full relative'>
+          <div className='flex flex-col self-stretch rounded-l-lg bg-primary-purple-50 h-[460px] lg:h-auto lg:order-2 w-full relative overflow-hidden'>
             <div className='flex flex-col gap-5 px-10 pt-10 pb-5 lg:pb-10'>
               <h4 className='text-gray-25 text-Display-xs lg:text-Display-sm font-medium'>Closer Than a Click Away</h4>
               <div className='flex flex-col gap-6'>
