@@ -3,44 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import freelancerImg from '@/public/assets/svgs/freelancer-pana.svg';
 import clientImg from '@/public/assets/svgs/client-pana.svg';
-
-const freelancerData = [
-  {
-    title: 'Project Discovery',
-    description: 'Search and apply for projects matching their skills and experience.',
-  },
-  {
-    title: 'Profile Creation',
-    description: 'Showcase their talent, experience, and portfolio to attract clients',
-  },
-  {
-    title: 'Client Communication',
-    description: 'Securely connect and collaborate with clients through Wokhive.',
-  },
-  {
-    title: 'Project Management Tools',
-    description: 'Track tasks, and deadlines, and stay organised with built-in features.',
-  },
-];
-
-const clientData = [
-  {
-    title: 'Freelancer Search',
-    description: 'Find pre-vetted freelancers with the skills and experience needed for their projects.',
-  },
-  {
-    title: 'Project Posting',
-    description: 'Easily post project details, budget, and requirements.',
-  },
-  {
-    title: 'Freelancer Communication',
-    description: 'Securely connect and collaborate with freelancers directly through the platform.',
-  },
-  {
-    title: 'Talent Pool Access',
-    description: 'Gain access to a diverse pool of skilled freelancers.',
-  },
-];
+import { clientData, freelancerData } from '@/constants/services';
 
 const OurServices: NextPage = () => {
   return (
@@ -87,7 +50,7 @@ const OurServices: NextPage = () => {
         <div className='flex flex-col lg:flex-row p-10 rounded-xl border border-secondary-lemon-50 bg-secondary-lemon-10 items-center gap-10 self-stretch'>
           <Image src={clientImg} alt='client' className='order-2 lg:order-1' />
 
-          <div className='flex flex-col gap-3 flex-[1_1_0]'>
+          <div className='flex flex-col gap-3 flex-[1_1_0] order-1 lg:order-2'>
             <h4 className='self-stretch text-Text-xl lg:text-Display-extra text-primary-purple-60 font-medium'>
               For Clients
             </h4>
