@@ -28,7 +28,7 @@ const Navbar: NextPage = () => {
           <Logo fill='#423366' />
         </Link>
         <div className='lg:hidden relative'>
-          <button className='absolute z-20 right-6 -top-4' onClick={() => setMobileMenuOpen((prevState) => !prevState)}>
+          <button className='absolute z-20 right-0 -top-4' onClick={() => setMobileMenuOpen((prevState) => !prevState)}>
             <svg fill='none' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'>
               <path
                 d='M3 12H15M3 6H21M3 18H21'

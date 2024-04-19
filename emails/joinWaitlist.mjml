@@ -1,6 +1,6 @@
 <mjml>
   <mj-head>
-    <mj-title> Confirm your email address </mj-title>
+    <mj-title> Join the waitlist </mj-title>
     <mj-font name="romela" href="https://wokhive.com/fonts/romela/Romela-Regular.woff" />
     <mj-font name="whyteInktrap" href="https://wokhive.com/fonts/whyte_inktrap/WhyteInktrap-Regular.woff2" />
     <mj-attributes>
@@ -19,7 +19,6 @@
       />
     </mj-attributes>
   </mj-head>
-
   <mj-body background-color="#FFF">
     <mj-wrapper>
       <mj-section padding="40px 40px 20px">
@@ -35,7 +34,6 @@
         </mj-column>
       </mj-section>
     </mj-wrapper>
-
     <mj-section padding="0 40px">
       <mj-column>
         <mj-text
@@ -46,21 +44,27 @@
           color="#625580"
           font-family="whyteInktrap, sans-serif"
         >
-          Confirm your email address
+          Join the waitlist
         </mj-text>
-        <mj-text align="left" padding="0 0 20px"> Hello ${name}, </mj-text>
+        <mj-text align="left" padding="0 0 20px"> Hello Wokhiver, </mj-text>
         <mj-text align="left" padding="0 0 20px">
           We’re thrilled to have you join the wokhive family, where opportunities meet talent.
         </mj-text>
         <mj-text align="left" padding="0 0 20px">
-          Your journey towards freelance success begins here and we are here to support you every step of the way.
-          Kindly log into your dashboard to enjoy our broad freelance opportunities.
+          We’re currently in the process of onboarding new users and will notify you as soon as we’re ready to welcome
+          you aboard.
+        </mj-text>
+        <mj-text align="left" padding="0 0 20px">
+          In the meantime, feel free to explore our website and get a head start on your freelance journey.
+        </mj-text>
+        <mj-text align="left" padding="0 0 20px">
+          If you have any questions, please don’t hesitate to reach out to us at
+          <a href="mailto:wokhive@gmail.com"> wokhive@gmail.com </a>
         </mj-text>
         <mj-text align="left" padding="0 0 40px">
           Thanks, <br />
           The Wokhive Team.
         </mj-text>
-        <mj-button href="${url}"> Log into your dashboard </mj-button>
       </mj-column>
     </mj-section>
 

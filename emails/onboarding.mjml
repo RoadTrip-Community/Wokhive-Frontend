@@ -1,14 +1,8 @@
 <mjml>
   <mj-head>
     <mj-title> Welcome to Wokhive! </mj-title>
-    <mj-font
-      name="romela"
-      href="https://github.com/RoadTrip-Community/Wokhive-Frontend/blob/dev/public/assets/fonts/romela/Romela-Regular.woff"
-    />
-    <mj-font
-      name="whyteInktrap"
-      href="https://github.com/RoadTrip-Community/Wokhive-Frontend/blob/dev/public/assets/fonts/whyte_inktrap/WhyteInktrap-Regular.woff2"
-    />
+    <mj-font name="romela" href="https://wokhive.com/fonts/romela/Romela-Regular.woff" />
+    <mj-font name="whyteInktrap" href="https://wokhive.com/fonts/whyte_inktrap/WhyteInktrap-Regular.woff2" />
     <mj-attributes>
       <mj-text font-family="romela, Helvetica, Arial, sans-serif" font-size="16px" color="#384860" line-height="24px" />
       <mj-button
@@ -29,15 +23,16 @@
   <mj-body background-color="#FFF">
     <mj-wrapper>
       <mj-section padding="40px 40px 10px">
-        <mj-column border="2px solid">
-          <mj-image src="" alt="Wokhive Logo" width="121px" height="30px" padding="0 0 20px" align="left" />
+        <mj-column>
+          <mj-image
+            src="https://wokhive.com/assets/svgs/logo.svg"
+            alt="Wokhive Logo"
+            width="121px"
+            height="30px"
+            padding="0 0 20px"
+            align="left"
+          />
         </mj-column>
-      </mj-section>
-    </mj-wrapper>
-
-    <mj-wrapper>
-      <mj-section padding="10px 40px 20px">
-        <mj-column background-color="rgba(255, 209, 171, 0.25)"> <mj-spacer height="200px" /> </mj-column>
       </mj-section>
     </mj-wrapper>
 
@@ -108,24 +103,30 @@
       </mj-column>
     </mj-section>
 
-    <mj-section padding="0 40px 0">
+    <mj-section padding="0 40px">
       <mj-column>
-        <mj-text align="left" padding="24px 0 20px">
+        <mj-divider border-color="#E0E4E8" border-width="1px" padding="20px 0 20px" />
+      </mj-column>
+    </mj-section>
+    <mj-section padding="0 40px">
+      <mj-column>
+        <mj-text align="left" padding="0 0 20px">
           This email was sent to <a href="{`mailto:${email}`}" color="#423366">${email}</a>. If you'd rather not receive
           this kind of email, Don’t want any more emails from Wokhive? <a href="#" color="#423366">Unsubscribe</a>.
         </mj-text>
-        <mj-text align="left" padding="0 0 20px"> © ${year} Wokhive. All rights reserved. </mj-text>
-        <mj-social font-size="15px" icon-size="30px" mode="horizontal" align="left" padding="0 0 20px">
+        <mj-text align="left" padding="0 0 20px"> © 2021 Wokhive. All rights reserved. </mj-text>
+
+        <mj-social font-size="15px" icon-size="24px" mode="horizontal" align="left" padding="0 0 20px">
           <mj-social-element
             name="web"
             href=""
-            src="https://img.icons8.com/ios-glyphs/50/667085/facebook-new.png"
+            src="https://img.icons8.com/ios-glyphs/50/667085/twitter.png"
             background-color="#FFFFFF"
           />
           <mj-social-element
             name="web"
             href=""
-            src="https://img.icons8.com/ios-glyphs/50/667085/twitter.png"
+            src="https://img.icons8.com/ios-glyphs/50/667085/facebook-new.png"
             background-color="#FFFFFF"
           />
           <mj-social-element

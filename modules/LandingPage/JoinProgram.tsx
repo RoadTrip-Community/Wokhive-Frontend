@@ -22,7 +22,7 @@ const JoinProgram: NextPage = () => {
             width={573}
           />
         </div>
-        <div className='bg-[#615580] flex flex-col p-6 justify-center gap-10 w-full h-[400px] lg:h-auto max-w-[573px] lg:px-16 rounded-b-lg lg:rounded-r-2xl lg:rounded-b-none relative'>
+        <div className='bg-[#615580] flex flex-col p-6 justify-center gap-10 w-full h-[400px] lg:h-auto max-w-[573px] lg:px-16 rounded-b-lg lg:rounded-r-2xl lg:rounded-b-none relative overflow-hidden'>
           <Image alt='flower' className='absolute top-0 right-0 z-10 rotate-[30deg]' src={orangeFlower} />
           <Image
             alt='flower'
