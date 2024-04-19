@@ -57,11 +57,9 @@ const Communities: NextPage = () => {
         <p className='text-secondary text-Text-md md:text-Text-lg'>
           Sign up today and get the full community experience
         </p>
-        <div className=''>
-          <Button hierarchy='primary' href={ROUTES.SIGNUP} size='md'>
-            Sign up
-          </Button>
-        </div>
+        <Button hierarchy='primary' href={ROUTES.SIGNUP} size='md' className='min-w-max'>
+          Sign up
+        </Button>
       </div>
     </section>
   );
