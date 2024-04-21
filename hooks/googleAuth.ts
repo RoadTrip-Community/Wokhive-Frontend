@@ -6,7 +6,7 @@ import notify from '@/components/UI/toast';
 export const useGoogleSignUp = () => {
   return useMutation({
     mutationFn: oauth2callback,
-    onSuccess: async (data: Promise<ApiResponse<any>>) => {
+    onSuccess: async (data: Promise<ApiResponse<unknown>>) => {
       notify({
         type: 'success',
         message: (await data).message,
@@ -24,7 +24,7 @@ export const useGoogleSignUp = () => {
 export const useGoogleSignIn = () => {
   return useMutation({
     mutationFn: googleSignIn,
-    onSuccess: async (data: Promise<ApiResponse<any>>) => {
+    onSuccess: async (data: Promise<ApiResponse<unknown>>) => {
       notify({
         type: 'success',
         message: (await data).message,

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import newsletter from '@/public/assets/svgs/newsletter.png';
@@ -5,8 +6,26 @@ import orangeFlower from '@/public/assets/svgs/cta_orange_flower.svg';
 import whiteFlower from '@/public/assets/svgs/white_flower.svg';
 import { NextPage } from 'next';
 import Button from '@/components/UI/Button';
+import { useWaitlist } from '@/hooks/mailing';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+
+const schema = z.object({
+  email: z.string().email({ message: 'Please enter a valid email' }),
+});
 
 const JoinProgram: NextPage = () => {
+  const waitlist = useWaitlist();
+
+  const { register, handleSubmit } = useForm<{ email: string }>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = async (data: { email: string }) => {
+    waitlist.mutate(data.email);
+  };
+
   return (
     <>
       <section
@@ -37,16 +56,20 @@ const JoinProgram: NextPage = () => {
               Become one of our first few members and get access to exclusive deals, test new features and more.
             </p>
           </div>
-          <div className='flex flex-col sm:flex-row items-start  sm:items-center justify-between bg-transparent sm:bg-white rounded-lg sm:py-1 sm:pl-4 pr-1 w-full'>
+          <form
+            className='flex flex-col sm:flex-row items-start  sm:items-center justify-between bg-transparent sm:bg-white rounded-lg sm:py-1 sm:pl-4 pr-1 w-full'
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <input
               className='text-[#908F8F] text-[9.1px] lg:text-base bg-white placeholder:text-[#908F8F] py-4 px-2 w-full mb-4 sm:mb-0 rounded-lg h-10 outline-none focus:outline-none basis-1/2'
               placeholder='Enter your email address'
               type='text'
+              {...register('email')} //eslint-disable-line
             />
-            <Button hierarchy='primary' href='/' size='lg'>
-              Join the program
+            <Button hierarchy='primary' size='lg'>
+              Join waitlist
             </Button>
-          </div>
+          </form>
         </div>
       </section>
     </>

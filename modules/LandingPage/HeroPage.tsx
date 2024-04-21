@@ -18,7 +18,7 @@ const HeroPage: NextPage = () => {
             career today
           </p>
           <Button hierarchy='primary' href={ROUTES.SIGNUP} size='md'>
-            Sign up now
+            Join waitlist
           </Button>
         </div>
         <div className='relative flex justify-center sm:min-h-[300px] w-full sm:w-[844px] min-w-[340px] h-[276.305px] md:w-[1058px]'>

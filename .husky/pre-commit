@@ -20,4 +20,8 @@ npm run lint
 echo '👷 Running tests: please wait.... 🚀'
 npm run test
 
+# Run build
+echo '👷 Running build: please wait.... 🚀'
+npm run build
+
 echo '👷 No error found: committing this now.... ✨'

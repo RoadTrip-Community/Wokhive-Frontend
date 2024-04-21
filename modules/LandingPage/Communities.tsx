@@ -1,9 +1,9 @@
 import React from 'react';
-import paystack from '@/public/assets/svgs/Paystack.svg';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Button from '@/components/UI/Button';
 import { ROUTES } from '@/constants/routes';
+import rt from '@/public/assets/svgs/RT-Icon.svg';
 
 const Communities: NextPage = () => {
   return (
@@ -18,13 +18,13 @@ const Communities: NextPage = () => {
           </p>
         </div>
         <div className='inline-flex flex-col gap-4'>
-          <div className='w-[124.8px] h-[48px] lg:w-[312px] lg:h-[120px] relative'>
-            <div className='flex items-center justify-center h-12 w-12 lg:w-[120px] lg:h-[120px] rounded-full shrink-0 border-2 lg:border-[5px] border-primary-milk-30 bg-primary-milk-10 absolute left-[76.8px] lg:left-[180px]'>
+          <div className='w-[124.8px] h-20 lg:w-[312px] lg:h-[120px] relative'>
+            {/* <div className='flex items-center justify-center h-12 w-12 lg:w-[120px] lg:h-[120px] rounded-full shrink-0 border-2 lg:border-[5px] border-primary-milk-30 bg-primary-milk-10 absolute left-[76.8px] lg:left-[180px]'>
               <Image
-                alt='paystack'
+                alt='RT community'
                 className='opacity-40 w-[18.4px] h-[18.4px] lg:w-[46px] lg:h-[46px]'
                 height={46}
-                src={paystack}
+                src={rt}
                 width={46}
               />
             </div>
@@ -36,29 +36,29 @@ const Communities: NextPage = () => {
                 src={paystack}
                 width={46}
               />
-            </div>
-            <div className='flex items-center justify-center h-12 w-12 lg:w-[120px] lg:h-[120px] rounded-full shrink-0 border-2 lg:border-[5px] border-primary-purple-20 bg-primary-purple-10 absolute left-0'>
+            </div> */}
+            <div className='flex items-center justify-center h-20 w-20 lg:w-[120px] lg:h-[120px] rounded-full shrink-0 border-2 border-primary-purple-20 bg-primary-purple-10 absolute left-0 p-3'>
               <Image
-                alt='paystack'
-                className='opacity-40 w-[18.4px] h-[18.4px] lg:w-[46px] lg:h-[46px]'
-                height={46}
-                src={paystack}
-                width={46}
+                alt='RT Community'
+                // className='opacity-40 w-[18.4px] h-[18.4px] lg:w-[46px] lg:h-[46px]'
+                // height={46}
+                src={rt}
+                // width={46}
               />
             </div>
           </div>
           <p className='text-primary-purple-20 font-whyte md:text-Text-xl'>
-            Roadtrip Community<span className='inline lg:hidden'>, asa cortiere</span> and lots more
+            Roadtrip Community<span className='hidden'>, asa cortiere</span> and lots more
           </p>
         </div>
       </div>
 
-      <div className='flex gap-11 items-center justify-center'>
+      <div className='flex gap-5 items-center justify-between max-w-[740px] mx-auto'>
         <p className='text-secondary text-Text-md md:text-Text-lg'>
           Sign up today and get the full community experience
         </p>
         <Button hierarchy='primary' href={ROUTES.SIGNUP} size='md' className='min-w-max'>
-          Sign up
+          Join waitlist
         </Button>
       </div>
     </section>
