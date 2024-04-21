@@ -65,7 +65,7 @@ const CTA: NextPage = () => {
         <div className='h-[227px] w-full rounded-t-2xl' />
 
         <div className='flex max-w-[1168px] w-full justify-between gap-10 flex-col lg:flex-row lg:items-end relative z-10'>
-          <div className='flex flex-col gap-2 lg:min-w-[648px] w-full'>
+          <div className='flex flex-col gap-2 lg:min-w-[548px] xl:min-w-[648px] flex-1 w-full'>
             <h4 className='text-primary-purple-60 text-Display-xs lg:text-Display-extra font-bold lg:max-w-[484px]'>
               Join our waitlist and be notified when we go live.
             </h4>
@@ -74,7 +74,7 @@ const CTA: NextPage = () => {
               have the tools and support you need to confidently navigate your freelance career.
             </p>
           </div>
-          <form className='w-full flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
+          <form className='w-full flex flex-col gap-4 min-w-[200px]' onSubmit={handleSubmit(onSubmit)}>
             <Input
               placeholder='Enter your email address'
               className='h-[64px]'
@@ -82,7 +82,14 @@ const CTA: NextPage = () => {
               register={register}
               destructive={errors.email}
             />
-            <Button size='lg'>Join the Waitlist </Button>
+            <Button
+              size='lg'
+              disabled={waitlist.isPending || waitlist.isPaused}
+              isLoading={waitlist.isPending || waitlist.isPaused}
+              className='min-w-[150px]'
+            >
+              Join the Waitlist
+            </Button>
           </form>
         </div>
       </div>

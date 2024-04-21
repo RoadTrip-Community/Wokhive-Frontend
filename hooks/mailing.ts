@@ -9,7 +9,7 @@ export const useWaitlist = () => {
     onSuccess: async (data: Promise<ApiResponse<unknown>>) => {
       notify({
         type: 'success',
-        message: (await data).message,
+        message: (await data).message || 'Successfully added to waitlist!',
       });
     },
     onError: (error: AxiosError) => {

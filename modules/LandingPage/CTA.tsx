@@ -41,7 +41,7 @@ const CTA: NextPage = () => {
             </p>
           </div>
           <Link href={ROUTES.SIGNUP}>
-            <Button hierarchy='primary' size='md'>
+            <Button hierarchy='primary' size='md' className='min-w-[150px]'>
               Join waitlist
             </Button>
           </Link>

@@ -66,7 +66,13 @@ const JoinProgram: NextPage = () => {
               type='text'
               {...register('email')} //eslint-disable-line
             />
-            <Button hierarchy='primary' size='lg'>
+            <Button
+              hierarchy='primary'
+              size='lg'
+              disabled={waitlist.isPending || waitlist.isPaused}
+              isLoading={waitlist.isPending || waitlist.isPaused}
+              className='min-w-[150px]'
+            >
               Join waitlist
             </Button>
           </form>
