@@ -13,6 +13,7 @@ import pascal from '@/public/assets/images/pascal.png';
 import michael from '@/public/assets/images/michael.png';
 import oladipo from '@/public/assets/images/oladipo.png';
 import obinna from '@/public/assets/images/obinna.png';
+import damilare from '@/public/assets/images/damilare.png';
 
 export const teamData = [
   {
@@ -133,7 +134,25 @@ export const teamData = [
       },
     ],
   },
-
+  {
+    name: 'Damilare Protocol Arikeusola',
+    role: 'Backend Developer',
+    image: damilare,
+    socials: [
+      {
+        name: twitter,
+        link: 'https://twitter.com/dprotocoll',
+      },
+      {
+        name: linkedin,
+        link: 'https://www.linkedin.com/in/dprotocoll/',
+      },
+      {
+        name: globe,
+        link: 'https://www.mrprotocoll.me/',
+      },
+    ],
+  },
   {
     name: 'Oladipo Yuusuf Oyelola',
     role: 'UX Writer/Content Designer',

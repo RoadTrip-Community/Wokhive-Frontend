@@ -79,7 +79,7 @@ const GetStarted: NextPage = () => {
         </div>
         <Link href={ROUTES.SIGNUP}>
           <Button hierarchy='primary' size='md'>
-            Sign up now
+            Join waitlist
           </Button>
         </Link>
       </section>

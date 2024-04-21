@@ -5,6 +5,7 @@ export const ROUTES = {
   CONTACT: '/contact',
   ABOUT: '/about',
   SERVICES: '/services',
+  PRICING: '/pricing',
   FAQ: '/faq',
   TERMS: '/legal/terms',
   PRIVACY: '/legal/privacy-policy',
@@ -27,3 +28,4 @@ export const ROUTES = {
 };
 
 export const API_BASE_URL = 'https://wokhive-backend-python.onrender.com/api/v1/';
+export const API_BASE_URL_V2 = 'https://wokhive.mrprotocoll.me/api/v1/';

@@ -94,6 +94,12 @@ type ToastUIProps = {
   id?: string;
 };
 
+type waitlistMailingProps = {
+  recipient: string;
+  name: string;
+  verification_link: string;
+};
+
 ///////////////////////////
 ///////////////////////////
 // Context Types

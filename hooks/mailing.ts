@@ -1,15 +1,15 @@
 import { useMutation } from '@tanstack/react-query';
-import { signUp } from '@/api/auth';
+import { waitlist } from '@/api/waitlist';
 import { AxiosError } from 'axios';
 import notify from '@/components/UI/toast';
 
-export const useSignup = () => {
+export const useWaitlist = () => {
   return useMutation({
-    mutationFn: signUp,
-    onSuccess: async (data: Promise<ApiResponse<SignUpData>>) => {
+    mutationFn: waitlist,
+    onSuccess: async (data: Promise<ApiResponse<unknown>>) => {
       notify({
         type: 'success',
-        message: (await data).message,
+        message: (await data).message || 'Successfully added to waitlist!',
       });
     },
     onError: (error: AxiosError) => {

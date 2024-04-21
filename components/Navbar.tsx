@@ -6,10 +6,12 @@ import Button from './UI/Button';
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
+import { usePathname } from 'next/navigation';
 
 const Navbar: NextPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (innerWidth <= 1024) {
@@ -51,6 +53,7 @@ const Navbar: NextPage = () => {
               href={ROUTES.ABOUT}
               size='sm'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
+              className={pathname === ROUTES.ABOUT ? '!text-primary-700' : ''}
             >
               About us
             </Button>
@@ -59,6 +62,7 @@ const Navbar: NextPage = () => {
               href={ROUTES.SERVICES}
               size='sm'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
+              className={pathname === ROUTES.SERVICES ? '!text-primary-700' : ''}
             >
               Services
             </Button>
@@ -67,6 +71,7 @@ const Navbar: NextPage = () => {
               href={ROUTES.COMINGSOON}
               size='sm'
               onClick={() => setMobileMenuOpen((prevState) => !prevState)}
+              className={pathname === ROUTES.PRICING ? '!text-primary-700' : ''}
             >
               Pricing
             </Button>
