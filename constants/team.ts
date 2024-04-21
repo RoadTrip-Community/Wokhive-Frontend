@@ -14,6 +14,7 @@ import michael from '@/public/assets/images/michael.png';
 import oladipo from '@/public/assets/images/oladipo.png';
 import obinna from '@/public/assets/images/obinna.png';
 import damilare from '@/public/assets/images/damilare.png';
+import wonderful from '@/public/assets/images/wonderful.png';
 
 export const teamData = [
   {
@@ -150,6 +151,21 @@ export const teamData = [
       {
         name: globe,
         link: 'https://www.mrprotocoll.me/',
+      },
+    ],
+  },
+  {
+    name: 'Wonderful Adeyemo',
+    role: 'Backend Developer',
+    image: wonderful,
+    socials: [
+      {
+        name: twitter,
+        link: 'https://twitter.com/yimikaadey',
+      },
+      {
+        name: globe,
+        link: 'https://adeyemowonderful.tech/',
       },
     ],
   },

@@ -3,7 +3,9 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import Button from '@/components/UI/Button';
 import { ROUTES } from '@/constants/routes';
-import rt from '@/public/assets/svgs/RT-Icon.svg';
+import rt from '@/public/assets/svgs/RT.svg';
+import wokhiveBlue from '@/public/assets/svgs/wokhive-blue.svg';
+import wokhiveOrange from '@/public/assets/svgs/wokhive-orange.svg';
 
 const Communities: NextPage = () => {
   return (
@@ -19,37 +21,23 @@ const Communities: NextPage = () => {
         </div>
         <div className='inline-flex flex-col gap-4'>
           <div className='w-[124.8px] h-20 lg:w-[312px] lg:h-[120px] relative'>
-            {/* <div className='flex items-center justify-center h-12 w-12 lg:w-[120px] lg:h-[120px] rounded-full shrink-0 border-2 lg:border-[5px] border-primary-milk-30 bg-primary-milk-10 absolute left-[76.8px] lg:left-[180px]'>
-              <Image
-                alt='RT community'
-                className='opacity-40 w-[18.4px] h-[18.4px] lg:w-[46px] lg:h-[46px]'
-                height={46}
-                src={rt}
-                width={46}
-              />
-            </div>
-            <div className='flex items-center justify-center h-12 w-12 lg:w-[120px] lg:h-[120px] rounded-full shrink-0 border-2 lg:border-[5px] border-secondary-purple-30 bg-secondary-purple-10 absolute left-[38.4px] lg:left-[90px]'>
-              <Image
-                alt='paystack'
-                className='opacity-40 w-[18.4px] h-[18.4px] lg:w-[46px] lg:h-[46px]'
-                height={46}
-                src={paystack}
-                width={46}
-              />
-            </div> */}
-            <div className='flex items-center justify-center h-20 w-20 lg:w-[120px] lg:h-[120px] rounded-full shrink-0 border-2 border-primary-purple-20 bg-primary-purple-10 absolute left-0 p-3'>
-              <Image
-                alt='RT Community'
-                // className='opacity-40 w-[18.4px] h-[18.4px] lg:w-[46px] lg:h-[46px]'
-                // height={46}
-                src={rt}
-                // width={46}
-              />
-            </div>
+            <Image
+              alt='RT community'
+              className='h-12 w-12 lg:w-[120px] lg:h-[120px] shrink-0 absolute left-[76.8px] lg:left-[180px]'
+              src={wokhiveOrange}
+            />
+            <Image
+              alt='paystack'
+              className='h-12 w-12 lg:w-[120px] lg:h-[120px] shrink-0 absolute left-[38.4px] lg:left-[90px]'
+              src={wokhiveBlue}
+            />
+            <Image
+              alt='RT Community'
+              className='h-12 w-12 lg:w-[120px] lg:h-[120px] shrink-0 absolute left-0'
+              src={rt}
+            />
           </div>
-          <p className='text-primary-purple-20 font-whyte md:text-Text-xl'>
-            Roadtrip Community<span className='hidden'>, asa cortiere</span> and lots more
-          </p>
+          <p className='text-primary-purple-20 font-whyte md:text-Text-xl'>Roadtrip Community and lots more</p>
         </div>
       </div>
 
