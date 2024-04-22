@@ -25,6 +25,16 @@ export const ROUTES = {
   FREELANCERKYC: '/freelancer/onboard/kyc',
   CLIENTKYC: '/client/onboard/kyc',
   ONBOARDCLIENT: '/client/onboard',
+
+  // dashboard
+  DASHBOARD: '/dashboard',
+  PROJECTS: '/dashboard/projects',
+  MESSAGE: '/dashboard/messages',
+  CONTRACTS: '/dashboard/contracts',
+  JOB_POSTINGS: '/dashboard/job-postings',
+  PROFILE: '/dashboard/profile',
+  SETTINGS: '/dashboard/settings',
+  SIGN_OUT: '/dashboard/sign-out',
 };
 
 export const API_BASE_URL = 'https://wokhive-backend-python.onrender.com/api/v1/';
