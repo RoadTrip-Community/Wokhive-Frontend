@@ -6,6 +6,7 @@ import { FreelancerOnboardingProvider } from '@/context/FreelancerOnboardingCont
 import { ClientOnboardingProvider } from '@/context/ClientOnboardingContext';
 import { Toaster } from 'react-hot-toast';
 import { ReactQueryClientProvider } from '@/utils/ReactQueryProvider';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: {
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Toaster />
         </ReactQueryClientProvider>
       </body>
+      <GoogleAnalytics gaId='G-RZ1BX6RJ8C' />
     </html>
   );
 }
