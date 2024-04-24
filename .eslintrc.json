@@ -9,6 +9,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "no-unused-vars": "off",
+    "react/react-in-jsx-scope": "off", // Disable the rule that requires importing React when using JSX
     "no-unused-expressions": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "import/no-unresolved": "error",

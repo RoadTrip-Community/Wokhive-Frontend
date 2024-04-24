@@ -25,7 +25,8 @@ const config: Config = {
         'shadow/xs': '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
         'shadow/lg': '0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)',
         'shadow/focused': '0px 0px 0px 4px #F2F4F7',
-        'shadow-1': ' 0px 12px 24px 0px rgba(169, 169, 169, 0.12)',
+        'shadow-1': '0px 12px 24px 0px rgba(169, 169, 169, 0.12)',
+        sidebar: '4px 0px 8px 0px rgba(7, 5, 14, 0.04)',
       },
       colors: {
         primary: {
@@ -158,56 +159,48 @@ const config: Config = {
           '12px',
           {
             lineHeight: '18px',
-            letterSpacing: '0%',
           },
         ],
         'Text-sm': [
           '14px',
           {
             lineHeight: '20px',
-            letterSpacing: '0%',
           },
         ],
         'Text-md': [
           '16px',
           {
             lineHeight: '24px',
-            letterSpacing: '0%',
           },
         ],
         'Text-lg': [
           '18px',
           {
             lineHeight: '28px',
-            letterSpacing: '0%',
           },
         ],
         'Text-xl': [
           '20px',
           {
             lineHeight: '30px',
-            letterSpacing: '0%',
           },
         ],
         'Display-xs': [
           '24px',
           {
             lineHeight: '32px',
-            letterSpacing: '0%',
           },
         ],
         'Display-sm': [
           '30px',
           {
             lineHeight: '38px',
-            letterSpacing: '0%',
           },
         ],
         'Display-extra': [
           '33px',
           {
             lineHeight: '45px',
-            letterSpacing: '0%',
           },
         ],
         'Display-md': [

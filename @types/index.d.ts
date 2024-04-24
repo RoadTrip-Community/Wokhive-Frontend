@@ -2,6 +2,16 @@
 ///////////////////////////
 // Component Types(UI)
 
+type BreadCrumbProps = {
+  homeElement?: ReactNode;
+  separator?: ReactNode;
+  containerClasses?: string;
+  listClasses?: string;
+  activeClasses?: string;
+  capitalizeLinks?: boolean;
+  goBack?: boolean;
+};
+
 type ButtonProps = {
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   hierarchy?: 'primary' | 'secondary' | 'tertiary' | 'link';
