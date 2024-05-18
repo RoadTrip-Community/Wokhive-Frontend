@@ -22,8 +22,7 @@ Thank you for your interest in contributing to Wokhive open-source project. We w
 ## Getting Started
 
 To get started with contributing,
-ensure you have [set up your development environment](./README.md)
-and that you are familiar with the project's goals and features.
+send a [Contribution Request](https://forms.gle/r7XV1aUeZvzukjrs9)
 
 ## How to Contribute
 
