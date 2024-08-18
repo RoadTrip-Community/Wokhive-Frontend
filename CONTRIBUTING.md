@@ -1,6 +1,10 @@
 # Contributing to Wokhive FE
 
-Thank you for your interest in contributing to Wokhive open-source project. We welcome contributions from the community to help improve and grow our project. Please take a moment to read through the guidelines below to ensure a smooth and effective collaboration.
+Thank you for your interest in contributing to the Wokhive open-source project. We welcome contributions from the community to help improve and grow our project. Please take a moment to read through the guidelines below to ensure a smooth and effective collaboration.
+
+RoadTrip Community Open-Source Initiative. At RoadTrip Community, we believe in the transformative power of collaboration and innovation. Our Open-Source initiative serves as a dynamic platform where individuals from diverse backgrounds in the design and tech industry come together to contribute, learn, and create. Focused on fostering a culture of collaboration, the Open-Source program transcends geographical limits, connecting members globally.
+
+Wokhive is one of our Open-source initiatives that focuses on project management for Freelancers and clients. Wokhive is officially open to taking new contributors for it's development.
 
 <a name="readme-top"></a>
 
