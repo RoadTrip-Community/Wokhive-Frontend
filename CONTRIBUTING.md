@@ -1,4 +1,4 @@
-# Contributing to Wokhive FE
+# Contributing to RoadTrip's Open-source Project - Wokhive
 
 Thank you for your interest in contributing to the Wokhive open-source project. We welcome contributions from the community to help improve and grow our project. Please take a moment to read through the guidelines below to ensure a smooth and effective collaboration.
 
