@@ -5,7 +5,7 @@ import Button from './UI/Button';
 import Image from 'next/image';
 import orangeFlower from '@/public/assets/svgs/cta_orange_flower.svg';
 import blueFlower from '@/public/assets/svgs/cta_blue_flower.svg';
-import Input from './UI/Input';
+import { Input } from './UI/Input';
 import { useWaitlist } from '@/hooks/mailing';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -80,7 +80,7 @@ const CTA: NextPage = () => {
               className='h-[64px]'
               name='email'
               register={register}
-              destructive={errors.email}
+              destructive={!!errors.email}
             />
             <Button
               size='lg'

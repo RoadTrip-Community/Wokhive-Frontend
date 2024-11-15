@@ -2,10 +2,11 @@ import { ArrowDown2 } from 'iconsax-react';
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import { ROUTES } from '@/constants/routes';
 
 const AllPosting = () => {
   return (
-    <div className='flex pb-20 flex-col gap-8 max-w-[1080px]'>
+    <div className='flex pt-6 pb-20 flex-col gap-8 max-w-[1080px]'>
       <div className='flex justify-between items-center self-stretch'>
         <div className='flex items-center gap-2'>
           <h3 className='text-gray-900 font-medium text-Display-sm'>All postings</h3>
@@ -68,7 +69,7 @@ const AllPosting = () => {
         </div>
         {Array.from({ length: 6 }).map((_, i) => (
           //   <GridJob key={i} />
-          <div key={i} className='flex p-1 items-center justify-between w-full gap-10'>
+          <Link href={ROUTES.JOB_DETAILS('s')} key={i} className='flex p-1 items-center justify-between w-full gap-10'>
             <div className='flex gap-7 items-center basis-1/2'>
               <Image
                 src='https://picsum.photos/100'
@@ -88,7 +89,7 @@ const AllPosting = () => {
             <span className='w-[1px] h-8 bg-gray-400' />
 
             <p className='text-gray-700 text-center w-full basis-3/12'>$150,000</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

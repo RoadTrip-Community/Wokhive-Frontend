@@ -5,7 +5,7 @@ import SocialButton from '@/components/UI/SocialButton';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import logo from '@/public/assets/svgs/logo.svg';
-import Input from '@/components/UI/Input';
+import { Input } from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import Link from 'next/link';
 import bgOverlay from '@/public/assets/svgs/signup_bg.svg';
@@ -20,9 +20,9 @@ import { useActivateAccount } from '@/hooks/activateAccount';
 import { ROUTES } from '@/constants/routes';
 import { generateRandomString } from '@/helpers/validation';
 
-type SignupFormProps = {
+interface SignupFormProps {
   userType: 'CLIENT' | 'FREELANCER';
-};
+}
 
 const signUpSchema = z.object({
   first_name: z.string().min(1, { message: 'First name must not be empty' }),
@@ -134,7 +134,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
                     <Input
                       destructive={!!errors.email}
                       disabled={signUpMutation.isPending}
-                      inputType='email'
+                      type='email'
                       label='Email address'
                       name='email'
                       placeholder='janedoe@gmail.com'
@@ -145,7 +145,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
                       destructive={!!errors.password}
                       disabled={signUpMutation.isPending}
                       hintText={errors.password?.message || 'Must be at least 8 characters'}
-                      inputType='password'
+                      type='password'
                       label='Enter password'
                       name='password'
                       placeholder='********'
@@ -156,7 +156,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
                       destructive={!!errors.confirmPassword}
                       disabled={signUpMutation.isPending}
                       hintText={errors.confirmPassword?.message || 'Must be the same password you entered earlier'}
-                      inputType='password'
+                      type='password'
                       label='Confirm password'
                       name='confirmPassword'
                       placeholder='********'

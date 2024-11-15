@@ -10,7 +10,7 @@ import clock from '@/public/assets/svgs/icons/clock.svg';
 import orangeFlower from '@/public/assets/svgs/cta_orange_flower.svg';
 import whiteFlower from '@/public/assets/svgs/white_flower.svg';
 import Link from 'next/link';
-import Input from '../UI/Input';
+import { Input, TextArea } from '../UI/Input';
 import Button from '../UI/Button';
 
 const Contact: NextPage = () => {
@@ -82,9 +82,9 @@ const Contact: NextPage = () => {
             </p>
 
             <div className='flex flex-col gap-6 w-full'>
-              <Input label='Name' placeholder='Enter your name' />
-              <Input label='Email' placeholder='Enter your email' />
-              <Input elementType='textarea' label='Message' placeholder='Enter your message' />
+              <Input label='Name' placeholder='Enter your name' name='name' />
+              <Input label='Email' placeholder='Enter your email' name='email' />
+              <TextArea label='Message' placeholder='Enter your message' name='message' />
             </div>
 
             <Button className='w-full'>Submit</Button>
