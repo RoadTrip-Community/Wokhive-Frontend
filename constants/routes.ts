@@ -35,6 +35,18 @@ export const ROUTES = {
   PROFILE: '/dashboard/profile',
   SETTINGS: '/dashboard/settings',
   SIGN_OUT: '/dashboard/sign-out',
+
+  ////CLIENT DASHBOARD
+  CLIENT: '/client',
+  CLIENT_JOB_POSTINGS: '/client/job-postings',
+  CLIENT_PROJECTS: '/client/projects',
+  CLIENT_NEW_PROJECT: '/client/new-project',
+  CLIENT_MESSAGE: '/client/messages',
+  CLIENT_CONTRACTS: '/client/contracts',
+  CLIENT_INVOICE: '/client/invoice',
+  CLIENT_PROFILE: '/client/profile',
+  CLIENT_SETTING: '/client/setting',
+  CLIENT_SIGN_OUT: '/client/sign-out',
 };
 
 export const API_BASE_URL = 'https://wokhive-backend-python.onrender.com/api/v1/';
