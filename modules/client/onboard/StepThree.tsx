@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '@/components/UI/Input';
+import { Input } from '@/components/UI/Input';
 import { NextPage } from 'next';
 import { useClientOnboarding } from '@/context/ClientOnboardingContext';
 

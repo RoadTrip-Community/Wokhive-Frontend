@@ -7,7 +7,7 @@ import arrowRight from '@/public/assets/svgs/icons/arrow-up-right.svg';
 
 const Dashboard: NextPage = () => {
   return (
-    <div className='flex pb-20 flex-col gap-8 max-w-6xl'>
+    <div className='flex pt-6 pb-20 flex-col gap-8 w-full'>
       {/* SECTION onboarding banner */}
       <div className='flex w-full p-6 justify-between items-center gap-10 rounded-lg bg-secondary-lemon-10'>
         <div className='flex flex-col gap-2'>
@@ -22,7 +22,7 @@ const Dashboard: NextPage = () => {
       </div>
       {/* !SECTION onboarding banner */}
 
-      <div className='flex flex-col gap-2 max-w-[1086px]'>
+      <div className='flex flex-col gap-2 w-full xl:w-11/12'>
         <h1 className='text-Display-md font-medium text-gray-700'>Hello John,</h1>
         <div className='flex flex-col gap-4'>
           <div className='flex justify-end w-full'>
@@ -33,7 +33,7 @@ const Dashboard: NextPage = () => {
           </div>
 
           <div className='flex gap-10 justify-between'>
-            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-secondary-purple-10 bg-primary-purple-10'>
+            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-secondary-purple-10 bg-primary-purple-10 flex-1'>
               <div className='flex items-center gap-2'>
                 <p className='text-Text-sm font-medium text-primary-purple-60'>Ongoing Projects</p>
                 <Image src={arrowRight} alt='arrow right' />
@@ -41,7 +41,7 @@ const Dashboard: NextPage = () => {
               <p className='font-semibold text-primary-purple-80 text-Display-xs'>3</p>
             </div>
 
-            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-secondary-purple-10 bg-primary-purple-10'>
+            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-secondary-purple-10 bg-primary-purple-10 flex-1'>
               <div className='flex items-center gap-2'>
                 <p className='text-Text-sm font-medium text-primary-purple-60'>Completed Projects</p>
                 <Image src={arrowRight} alt='arrow right' />
@@ -49,7 +49,7 @@ const Dashboard: NextPage = () => {
               <p className='font-semibold text-primary-purple-80 text-Display-xs'>10</p>
             </div>
 
-            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-secondary-purple-10 bg-primary-purple-10'>
+            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-secondary-purple-10 bg-primary-purple-10 flex-1'>
               <div className='flex items-center gap-2'>
                 <p className='text-Text-sm font-medium text-primary-purple-60'>Active Negotiations</p>
                 <Image src={arrowRight} alt='arrow right' />
@@ -57,7 +57,7 @@ const Dashboard: NextPage = () => {
               <p className='font-semibold text-primary-purple-80 text-Display-xs'>2</p>
             </div>
 
-            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-gray-300 bg-primary-purple-70 min-w-[358px]'>
+            <div className='flex py-5 px-4 flex-col gap-4 rounded border border-gray-300 bg-primary-purple-70 min-w-[310px] flex-[2_2_0%]'>
               <div className='flex items-center gap-2'>
                 <p className='text-Text-sm font-medium text-gray-300'>Wokhive available balance</p>
                 <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>

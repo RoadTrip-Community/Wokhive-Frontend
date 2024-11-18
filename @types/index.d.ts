@@ -2,7 +2,7 @@
 ///////////////////////////
 // Component Types(UI)
 
-type BreadCrumbProps = {
+interface BreadCrumbProps {
   homeElement?: ReactNode;
   separator?: ReactNode;
   containerClasses?: string;
@@ -10,9 +10,9 @@ type BreadCrumbProps = {
   activeClasses?: string;
   capitalizeLinks?: boolean;
   goBack?: boolean;
-};
+}
 
-type ButtonProps = {
+interface ButtonProps {
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   hierarchy?: 'primary' | 'secondary' | 'tertiary' | 'link';
   leftIcon?: React.ReactNode;
@@ -26,14 +26,13 @@ type ButtonProps = {
   spinnerColor?: string;
   spinnerSize?: number;
   className?: string;
-};
+}
 
-type InputProps = {
+interface customInputProps {
   seeIcon?: boolean;
   size?: 'sm' | 'md';
-  inputType?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
-  elementType?: 'input' | 'textarea';
-  type?:
+  // inputType?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
+  inputType?:
     | 'default'
     | 'iconLeading'
     | 'leadingDropdown'
@@ -49,15 +48,21 @@ type InputProps = {
   hintText?: string;
   helpIcon?: React.ReactNode;
   icon?: React.ReactNode;
-  dropdownOptions?: string[];
+  dropdownOptions?: { label: string; value: string }[];
   leadingText?: string;
   trailingButton?: React.ReactNode;
   error?: boolean;
   disabled?: boolean;
-  className?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+  value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  register?: any;
+}
 
-type SocialButtonProps = {
+interface InputProps extends customInputProps, React.InputHTMLAttributes<HTMLInputElement> {}
+
+interface TextAreaProps extends customInputProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
+interface SocialButtonProps {
   platform?: 'google' | 'facebook' | 'apple' | 'twitter' | 'figma' | 'dribble';
   theme?: 'brand' | 'colorWithBrand' | 'color';
   supportingText?: boolean;
@@ -67,13 +72,13 @@ type SocialButtonProps = {
   spinnerColor?: string;
   spinnerSize?: number;
   onClick?: () => void;
-};
+}
 
 ///////////////////////////
 ///////////////////////////
 // Components
 
-type TeamProps = {
+interface TeamProps {
   name: string;
   role: string;
   image: string | StaticImageData;
@@ -81,15 +86,15 @@ type TeamProps = {
     name: string;
     link: string;
   }[];
-};
+}
 
-type TestimonyProps = {
+interface TestimonyProps {
   testimony: string;
   name: string;
   role: string;
-};
+}
 
-type ToastUIProps = {
+interface ToastUIProps {
   type: 'success' | 'error' | 'loading' | 'custom';
   message: string;
   duration?: number;
@@ -102,19 +107,19 @@ type ToastUIProps = {
   };
   icon?: JSX.Element | string | null;
   id?: string;
-};
+}
 
-type waitlistMailingProps = {
+interface waitlistMailingProps {
   recipient: string;
   name: string;
   verification_link: string;
-};
+}
 
 ///////////////////////////
 ///////////////////////////
 // Context Types
 
-type FreelancerOnboardingContextProps = {
+interface FreelancerOnboardingContextProps {
   experienceLevel: string;
 
   servicesOffered: string[];
@@ -127,30 +132,30 @@ type FreelancerOnboardingContextProps = {
   setExperienceLevel: React.Dispatch<React.SetStateAction<typeof initialExperienceLevel>>;
   setServicesOffered: React.Dispatch<React.SetStateAction<typeof initialServicesOffered>>;
   setSpokenLanguages: React.Dispatch<React.SetStateAction<typeof initialSpokenLanguages>>;
-};
+}
 
-type StepsProps = {
+interface StepsProps {
   onComplete: (isComplete: boolean) => void;
-};
+}
 
-type personalInfo = {
+interface personalInfo {
   firstName: string;
   lastName: string;
   age: string;
   gender: string;
-};
+}
 
-type careerInfo = {
+interface careerInfo {
   occupation: string;
   address: string;
-};
+}
 
-type bankInfo = {
+interface bankInfo {
   bankName: string;
   accountNumber: string;
-};
+}
 
-type ClientOnboardingContextProps = {
+interface ClientOnboardingContextProps {
   personalInfo: personalInfo;
 
   careerInfo: careerInfo;
@@ -160,36 +165,36 @@ type ClientOnboardingContextProps = {
   setPersonalInfo: React.Dispatch<React.SetStateAction<typeof initialPersonalInfo>>;
   setCareerInfo: React.Dispatch<React.SetStateAction<typeof initialCareerInfo>>;
   setBankInfo: React.Dispatch<React.SetStateAction<typeof initialBankInfo>>;
-};
+}
 ///////////////////////////
 ///////////////////////////
 // Freelancer Types
 
-type OnboardingStartScreenProps = {
+interface OnboardingStartScreenProps {
   onStart: () => void;
-};
+}
 
-type Language = {
+interface Language {
   name: string;
   proficiency: 'Basic' | 'Conversational' | 'Fluent' | null;
   disabled: boolean;
   proficiencyDisabled: boolean;
-};
+}
 
 ///////////////////////////
 ///////////////////////////
 // Auth Types
 
-type signInProps = {
+interface signInProps {
   email: string;
   password: string;
-};
+}
 
-type SignUpProps = {
+interface SignUpProps {
   first_name: string;
   last_name: string;
   email: string;
   password: string;
   confirmPassword?: string;
   role?: string;
-};
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NextPage } from 'next';
-type LogoProps = {
+interface LogoProps {
   fill: string;
-};
+}
 
 const Logo: NextPage<LogoProps> = ({ fill }) => {
   return (

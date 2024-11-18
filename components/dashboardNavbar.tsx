@@ -9,7 +9,7 @@ const DashboardNavbar = () => {
   const goBack = pathname !== '/dashboard';
 
   return (
-    <div className='flex w-full py-3 px-10 justify-between items-center border-b-2 border-gray-300 bg-white'>
+    <div className='flex w-[calc(100%-280px)] h-[70px] px-10 justify-between items-center border-b-2 border-gray-300 bg-white fixed z-10'>
       <BreadCrumbs goBack={goBack} />
 
       <div className='flex pl-2.5 justify-center items-center gap-2.5'>
