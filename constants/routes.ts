@@ -28,13 +28,16 @@ export const ROUTES = {
 
   // dashboard
   DASHBOARD: '/dashboard',
-  PROJECTS: '/dashboard/projects',
-  MESSAGE: '/dashboard/messages',
-  CONTRACTS: '/dashboard/contracts',
-  JOB_POSTINGS: '/dashboard/job-postings',
-  PROFILE: '/dashboard/profile',
-  SETTINGS: '/dashboard/settings',
-  SIGN_OUT: '/dashboard/sign-out',
+  PROJECTS: '/projects',
+  MESSAGE: '/messages',
+  CONTRACTS: '/contracts',
+  JOB_POSTINGS: '/job-postings',
+  SENDPROPOSAL: '/job-postings/send-proposal',
+  PROFILE: '/profile',
+  SETTINGS: '/settings',
+  SIGN_OUT: '/sign-out',
+
+  JOB_DETAILS: (jobId: string) => `/job-postings/${jobId}`,
 
   ////CLIENT DASHBOARD
   CLIENT: '/client',

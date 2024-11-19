@@ -13,11 +13,13 @@ export const metadata: Metadata = {
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex w-full'>
+    <div className='flex w-full bg-white'>
       <Sidebar />
-      <div className='flex-grow flex-col ml-[280px]'>
+      <div className='flex-grow flex-col ml-[280px] bg-white'>
         <DashboardNavbar />
-        <div className='px-10 pt-8'>{children}</div>
+        <main className='flex-grow h-[calc(100vh-70px)] mx-8 px-2 mt-[70px] pb-6 overflow-hidden relative'>
+          {children}
+        </main>
       </div>
     </div>
   );

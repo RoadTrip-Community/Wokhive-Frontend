@@ -4,7 +4,7 @@ import SocialButton from '@/components/UI/SocialButton';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import logo from '@/public/assets/svgs/logo.svg';
-import Input from '@/components/UI/Input';
+import { Input } from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import Link from 'next/link';
 import bgOverlay from '@/public/assets/svgs/signup_bg.svg';
@@ -85,8 +85,8 @@ const SignInForm: NextPage = () => {
                 <div className='flex flex-col items-start gap-6 w-full'>
                   <div className='flex w-full flex-col items-start gap-6'>
                     <Input
-                      destructive={errors.email?.message}
-                      inputType='email'
+                      destructive={!!errors.email?.message}
+                      type='email'
                       label='Email address'
                       name='email'
                       placeholder='janedoe@gmail.com'
@@ -96,8 +96,8 @@ const SignInForm: NextPage = () => {
                       hintText={errors.email?.message}
                     />
                     <Input
-                      destructive={errors.password?.message}
-                      inputType='password'
+                      destructive={!!errors.password?.message}
+                      type='password'
                       label='Password'
                       name='password'
                       placeholder='********'

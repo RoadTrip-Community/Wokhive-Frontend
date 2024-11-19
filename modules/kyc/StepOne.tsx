@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextPage } from 'next';
-import Input from '@/components/UI/Input';
+import { Input } from '@/components/UI/Input';
 import { useState } from 'react';
 
 const KycStepOne: NextPage<StepsProps> = ({ onComplete }) => {

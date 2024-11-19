@@ -4,7 +4,7 @@ import bgOverlay from '@/public/assets/svgs/signup_bg.svg';
 import signInImg from '@/public/assets/images/freelancer_signup_img.png';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
-import Input from '@/components/UI/Input';
+import { Input } from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import { ROUTES } from '@/constants/routes';
 

@@ -5,7 +5,7 @@ import bgOverlay from '@/public/assets/svgs/signup_bg.svg';
 import signInImg from '@/public/assets/images/freelancer_signup_img.png';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
-import Input from '@/components/UI/Input';
+import { Input } from '@/components/UI/Input';
 import Button from '@/components/UI/Button';
 import { ArrowLeft } from 'iconsax-react';
 import { ROUTES } from '@/constants/routes';
@@ -41,7 +41,7 @@ const ForgotPassword: NextPage = () => {
               Send Reset Instructions
             </Button>
 
-            <Button hierarchy='link'>Need help? contact our support team is available</Button>
+            <Button hierarchy='link'>Need help? contact our support team</Button>
           </div>
         </div>
         <Image alt='bg overlay' className='absolute top-0 right-0 blur-[5px]' src={bgOverlay} />
