@@ -1,9 +1,10 @@
 import Button from '@/components/UI/Button';
-import { Add } from 'iconsax-react';
+import { Add, ArrowLeft2, ArrowRight2 } from 'iconsax-react';
 import { NextPage } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import arrowRight from '@/public/assets/svgs/icons/arrow-up-right.svg';
+import TaskCard from './taskCard';
 
 const Dashboard: NextPage = () => {
   return (
@@ -22,7 +23,7 @@ const Dashboard: NextPage = () => {
       </div>
       {/* !SECTION onboarding banner */}
 
-      <div className='flex flex-col gap-2 w-full xl:w-11/12'>
+      <div className='flex flex-col gap-6 w-full xl:w-11/12'>
         <h1 className='text-Display-md font-medium text-gray-700'>Hello John,</h1>
         <div className='flex flex-col gap-4'>
           <div className='flex justify-end w-full'>
@@ -71,6 +72,74 @@ const Dashboard: NextPage = () => {
                 </svg>
               </div>
               <p className='font-semibold text-gray-25 text-Display-xs'>$1,200,000</p>
+            </div>
+          </div>
+        </div>
+
+        <div className='flex flex-col gap-6'>
+          <div className='flex flex-col gap-6'>
+            <div className='flex items-center gap-3'>
+              <h3 className='text-primary-purple-50 text-Display-xs font-medium'>Upcoming Tasks</h3>
+              <div className='flex h-8 flex-col justify-center items-center gap-2.5 rounded-[90px] bg-secondary-purple-30 relative py-2 px-3'>
+                <div className='w-2 h-2 absolute rounded-full bg-error-error top-0 right-0' />
+                <p className='text-sm text-primary-purple-50 font-semibold'>4</p>
+              </div>
+            </div>
+
+            <div className='flex items-center gap-3 border-b border-primary-purple-20 justify-between'>
+              <div className='flex items-center gap-16'>
+                <div className='flex items-center gap-8'>
+                  <div className='flex pb-2 flex-col gap-0.5 border-b border-primary-purple-60'>
+                    <p className='font-semibold text-primary-purple-60'>23</p>
+                    <p className='font-semibold text-primary-purple-60'>Today</p>
+                  </div>
+
+                  <div className='flex pb-2 flex-col gap-0.5'>
+                    <p className='text-primary-purple-50'>24</p>
+                    <p className='text-primary-purple-50'>Saturday</p>
+                  </div>
+
+                  <div className='flex pb-2 flex-col gap-0.5'>
+                    <p className='text-primary-purple-20'>25</p>
+                    <p className='text-primary-purple-20'>Sunday</p>
+                  </div>
+                </div>
+
+                <div className='flex h-9 items-center gap-2'>
+                  <ArrowLeft2 size='24' color='#344054' />
+                  <ArrowRight2 size='24' color='#344054' />
+                </div>
+              </div>
+
+              <button className='flex items-center gap-1'>
+                <Add size='24' color='#423366' />
+                <p className='text-sm text-primary-purple-50 font-semibold'>Add new Task</p>
+              </button>
+            </div>
+          </div>
+
+          <div className='flex flex-col gap-2'>
+            <div className='flex py-4 justify-between gap-4'>
+              <h5 className='flex-1 shrink-0 text-gray-900 font-medium'>High Priority</h5>
+              <h5 className='flex-1 shrink-0 text-gray-900 font-medium'>Mid Priority</h5>
+              <h5 className='flex-1 shrink-0 text-gray-900 font-medium'>Low Priority</h5>
+            </div>
+            <div className='flex justify-between gap-4 w-full'>
+              <div className='flex flex-col gap-4 flex-1'>
+                <TaskCard />
+                <TaskCard />
+                <TaskCard />
+              </div>
+
+              <div className='flex flex-col gap-4 flex-1'>
+                <TaskCard />
+                <TaskCard />
+              </div>
+
+              <div className='flex flex-col gap-4 flex-1'>
+                <TaskCard />
+                <TaskCard />
+              </div>
             </div>
           </div>
         </div>
