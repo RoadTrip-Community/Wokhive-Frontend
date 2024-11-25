@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSignIn } from '@/hooks/signin';
 import { useGoogleSignIn } from '@/hooks/googleAuth';
 import { ROUTES } from '@/constants/routes';
+import { useRouter } from 'next/navigation';
 
 const signInSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email' }),
@@ -30,6 +31,7 @@ const signInSchema = z.object({
 const SignInForm: NextPage = () => {
   const signInMutation = useSignIn();
   const googleSignInMutation = useGoogleSignIn();
+  const router = useRouter();
 
   const {
     register: formRegister,
@@ -42,7 +44,10 @@ const SignInForm: NextPage = () => {
 
   const onSubmit = async (data: signInProps) => {
     await signInMutation.mutateAsync(data, {
-      onSuccess: () => reset(),
+      onSuccess: () => {
+        reset();
+        router.push(ROUTES.DASHBOARD);
+      },
     });
   };
 
