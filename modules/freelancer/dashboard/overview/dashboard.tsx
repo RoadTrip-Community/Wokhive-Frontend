@@ -8,7 +8,7 @@ import TaskCard from './taskCard';
 
 const Dashboard: NextPage = () => {
   return (
-    <div className='flex pt-6 pb-20 flex-col gap-8 w-full'>
+    <div className='flex pt-6 pb-20 flex-col gap-8 w-full px-10'>
       {/* SECTION onboarding banner */}
       <div className='flex w-full p-6 justify-between items-center gap-10 rounded-lg bg-secondary-lemon-10'>
         <div className='flex flex-col gap-2'>

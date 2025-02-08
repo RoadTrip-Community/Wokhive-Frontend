@@ -1,3 +1,4 @@
+import Messages from '@/modules/freelancer/dashboard/messages';
 import { NextPage, Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,6 +7,6 @@ export const metadata: Metadata = {
     'Stay connected and collaborate effectively with clients and freelancers using the messaging feature on the Workhive dashboard. Discuss project details, share files, and streamline communication effortlessly.',
 };
 
-const MessagesPage: NextPage = () => <div>Messages</div>;
+const MessagesPage: NextPage = () => <Messages />;
 
 export default MessagesPage;

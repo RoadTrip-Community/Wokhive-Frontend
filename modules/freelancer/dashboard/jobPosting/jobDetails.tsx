@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import files from '@/public/assets/svgs/icons/file-attachment.svg';
 import download from '@/public/assets/svgs/icons/download.svg';
@@ -11,11 +12,11 @@ const JobDetails: NextPage = () => {
       <div className='flex flex-col gap-5 self-stretch'>
         <div className='h-[206px] self-stretch rounded-t-lg w-full overflow-hidden'>
           <Image
-            src='https://picsum.photos/1440/400'
+            src='https://picsum.photos/2000/1000'
             alt='job detail'
-            width={1440}
-            height={400}
-            className='rounded-t-lg'
+            width={2000}
+            height={1000}
+            className='rounded-t-lg w-full object-cover'
           />
         </div>
         <div className='flex justify-between items-end gap-3 self-stretch'>
@@ -98,7 +99,7 @@ const JobDetails: NextPage = () => {
         </div>
       </div>
       <div className='w-full flex justify-center mt-6'>
-        <Button className='max-w-[490px] min-w-[150px] w-full justify-center' size='xl' href={ROUTES.SENDPROPOSAL}>
+        <Button className='max-w-[490px] min-w-[150px] w-full justify-center' size='xl' href={ROUTES.SENDPROPOSAL('s')}>
           Send Proposal
         </Button>
       </div>

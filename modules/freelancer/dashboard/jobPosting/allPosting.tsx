@@ -10,7 +10,7 @@ const AllPosting = () => {
   const [view, setView] = useState('grid');
 
   return (
-    <div className='flex pt-6 pb-20 flex-col gap-8 max-w-[1080px]'>
+    <div className='flex pt-6 pb-20 flex-col gap-8 px-10'>
       <div className='flex justify-between items-center self-stretch'>
         <div className='flex items-center gap-2'>
           <h3 className='text-gray-900 font-medium text-Display-sm'>All postings</h3>

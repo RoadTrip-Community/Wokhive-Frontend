@@ -32,7 +32,7 @@ export const ROUTES = {
   MESSAGE: '/messages',
   CONTRACTS: '/contracts',
   JOB_POSTINGS: '/job-postings',
-  SENDPROPOSAL: '/job-postings/send-proposal',
+  SENDPROPOSAL: (jobId: string) => `/job-postings/${jobId}/send-proposal`,
   PROFILE: '/profile',
   SETTINGS: '/settings',
   SIGN_OUT: '/sign-out',
