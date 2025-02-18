@@ -5,7 +5,6 @@ import AboutUs from '@/modules/about/AboutUs';
 import WhyWokhive from '@/modules/about/whyWokhive';
 import OurTeam from '@/modules/about/ourTeam';
 import CTA from '../cta';
-
 const About = () => {
   return (
     <>
