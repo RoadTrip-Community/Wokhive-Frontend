@@ -1,4 +1,5 @@
 import { NextPage, Metadata } from 'next';
+import Job from '@/modules/client/jobposting/job'
 
 export const metadata: Metadata = {
   title: 'Jobs - Manage Your Freelance Projects',
@@ -6,6 +7,6 @@ export const metadata: Metadata = {
     'Efficiently manage your jobs and collaborations with the Projects dashboard on Workhive. Track progress, milestones, and deadlines effortlessly.',
 };
 
-const JobPage: NextPage = () => <div>Jobs</div>;
+const JobPage: NextPage = () => <Job/>;
 
 export default JobPage;

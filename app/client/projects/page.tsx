@@ -9,4 +9,5 @@ export const metadata: Metadata = {
 
 const ProjectsPage: NextPage = () => <Project />;
 
+
 export default ProjectsPage;

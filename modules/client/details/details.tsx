@@ -57,6 +57,7 @@ const Details: NextPage = () => {
         {activeTab === "progress" && <ProgressReview/>}
         {activeTab === "timeline" && <ProjectTimeline/>}
     </div>
+    
   );
 };
 
