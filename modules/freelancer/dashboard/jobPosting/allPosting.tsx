@@ -104,6 +104,7 @@ const AllPosting = () => {
               <GridJob key={i} />
             ))}
           </>
+          
         ) : (
           <>
             <div className='flex w-full justify-between gap-20 border border-gray-900 opacity-70 rounded-md p-3 bg-[#FAFAFA]'>

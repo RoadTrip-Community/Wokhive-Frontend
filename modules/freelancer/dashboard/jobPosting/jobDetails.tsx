@@ -6,6 +6,7 @@ import Button from '@/components/UI/Button';
 import { NextPage } from 'next';
 import { ROUTES } from '@/constants/routes';
 
+
 const JobDetails: NextPage = () => {
   return (
     <div className='flex flex-col gap-6 self-stretch overflow-x-hidden overflow-y-scroll h-full px-3 pt-6'>

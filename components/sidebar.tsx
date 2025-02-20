@@ -54,6 +54,7 @@ const sidebarOthers = [
 
 const Sidebar: NextPage = () => {
   const pathname = usePathname();
+  
 
   return (
     <div className='min-w-[280px] min-h-screen shrink-0 bg-white shadow-sidebar flex flex-col gap-16 py-10 pl-8 fixed z-20'>

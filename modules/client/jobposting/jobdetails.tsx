@@ -1,4 +1,5 @@
 'use client';
+import { ROUTES } from '@/constants/routes';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -66,7 +67,7 @@ const JobDetails: NextPage = () => {
                         </div>
                     </div>
                     <div className='flex gap-5 items-center'>
-                        <Link href="#" className='bg-primary-purple-60 rounded-lg px-4 py-2 shadow-sm border border-primary-purple-60 text-white font-inter font-semibold transition-all duration-500 hover:scale-95'>
+                        <Link href={ROUTES.VIEW_APPLICANT_PROFILE} className='bg-primary-purple-60 rounded-lg px-4 py-2 shadow-sm border border-primary-purple-60 text-white font-inter font-semibold transition-all duration-500 hover:scale-95'>
                         view profile</Link>
                         <div className='bg-primary-50 rounded-lg px-4 py-2 shadow-sm border border-primary-200 text-primary-purple-70 font-inter font-semibold cursor-pointer transition-all duration-500 hover:scale-95'>Accept</div>
                         <div className='text-error-700 cursor-pointer rounded-lg font-inter font-semibold transition-all duration-500 hover:scale-95'>Decline</div>

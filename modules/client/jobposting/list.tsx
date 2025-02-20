@@ -10,6 +10,7 @@ interface Job {
   date: string;
   amount: number | string;
   type: string ;
+  id: string;
 }
 
 interface ListViewProps {
@@ -37,7 +38,7 @@ const ListView = ({ filteredJobs }: ListViewProps) => {
       <div className="mt-5 w-auto">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job, index) => (
-            <Link href={`${ROUTES.CLIENT_JOB_POSTINGS}/${slugify(job.title, {lower:true})}`} key={index} className="flex justify-between border-b py-4 bg-gray-50 px-5 items-center">
+            <Link href={`${ROUTES.CLIENT_JOB_POSTINGS}/${slugify(job.id)}`} key={index} className="flex justify-between border-b py-4 bg-gray-50 px-5 items-center">
               <div className="flex items-center space-x-4 w-1/3">
                 <Image src={job.image} alt="Company Logo" width={64} height={64} className="rounded-md" />
                 <p className="text-gray-900 text-lg font-semibold">{job.title}</p>
