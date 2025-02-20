@@ -1,5 +1,8 @@
 import Image from "next/image";
+import Link from 'next/link';
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { ROUTES } from "@/constants/routes";
+import slugify from "slugify";
 interface Job {
   image: string | StaticImport;
   title: string ;
@@ -16,7 +19,7 @@ const GridView = ({ filteredJobs }: ListViewProps) => {
         {filteredJobs.length > 0 ? (
                   <div className="flex gap-5 flex-wrap">
                     {filteredJobs.map((job, index) => (
-                      <div key={index} className="relative w-[400px] h-[400px] rounded-lg shadow-sm overflow-hidden">
+                      <Link href={`${ROUTES.CLIENT_JOB_POSTINGS}/${slugify(job.title, {lower:true})}`} key={index} className="relative w-[400px] h-[400px] rounded-lg shadow-sm overflow-hidden">
                         {/* Job Image */}
                         <Image src={job.image} alt={job.title} layout="fill" objectFit="cover" />
         
@@ -27,7 +30,7 @@ const GridView = ({ filteredJobs }: ListViewProps) => {
                           {job.type} {job.date} ₦{Number(job.amount).toLocaleString()}
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 ) : (

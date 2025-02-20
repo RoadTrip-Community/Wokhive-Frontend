@@ -15,14 +15,14 @@ interface Job {
 }
 
 const jobs: Job[] = [
-  // {
-  //   image: "/assets/images/twitter.png",
-  //   title: "Web Designer needed for a contract role",
-  //   type: "contract",
-  //   date: "3 months",
-  //   amount: "130000",
-  //   status: "active",
-  // },
+  {
+    image: "/assets/images/twitter.png",
+    title: "Web Designer needed for a contract role",
+    type: "contract",
+    date: "3 months",
+    amount: "130000",
+    status: "active",
+  },
   // {
   //   image: "/assets/images/twitter.png",
   //   title: "Web Designer needed for a contract role",

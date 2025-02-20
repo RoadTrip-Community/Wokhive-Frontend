@@ -1,5 +1,8 @@
+import { ROUTES } from "@/constants/routes";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
+import Link from "next/link";
+import slugify from "slugify";
 
 interface Job {
   image: string | StaticImport;
@@ -34,7 +37,7 @@ const ListView = ({ filteredJobs }: ListViewProps) => {
       <div className="mt-5 w-auto">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job, index) => (
-            <div key={index} className="flex justify-between border-b py-4 bg-gray-50 px-5 items-center">
+            <Link href={`${ROUTES.CLIENT_JOB_POSTINGS}/${slugify(job.title, {lower:true})}`} key={index} className="flex justify-between border-b py-4 bg-gray-50 px-5 items-center">
               <div className="flex items-center space-x-4 w-1/3">
                 <Image src={job.image} alt="Company Logo" width={64} height={64} className="rounded-md" />
                 <p className="text-gray-900 text-lg font-semibold">{job.title}</p>
@@ -47,7 +50,7 @@ const ListView = ({ filteredJobs }: ListViewProps) => {
                 <p className="border-l h-6 border-gray-400"></p>
                 <p className="w-1/3 text-center">₦{Number(job.amount).toLocaleString()}</p>
               </div>
-            </div>
+            </Link>
           ))
         ) : (
           <div className="flex flex-col justify-center items-center my-52 gap-4">
