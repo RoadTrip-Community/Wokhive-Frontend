@@ -60,22 +60,22 @@ const ClientOnboard: NextPage = () => {
     if (step === 3) {
       try {
         updateBankDetails(bankInfo);
-        router.push(ROUTES.CLIENTKYC);
+        router.push(ROUTES.KYC('client'));
         return;
       } catch (error) {
         throw error;
       }
     }
 
-    router.push(`${ROUTES.ONBOARDCLIENT}?step=${step + 1}`);
+    router.push(`${ROUTES.ONBOARD('client')}?step=${step + 1}`);
   };
 
   if (step === 0) {
-    return <ClientOnboardingStartScreen onStart={() => router.push(`${ROUTES.ONBOARDCLIENT}?step=1`)} />;
+    return <ClientOnboardingStartScreen onStart={() => router.push(`${ROUTES.ONBOARD('client')}?step=1`)} />;
   }
 
   const handleSkip = () => {
-    router.push(ROUTES.CLIENTKYC);
+    router.push(ROUTES.KYC('client'));
   };
 
   return (

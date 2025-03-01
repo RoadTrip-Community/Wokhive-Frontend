@@ -11,6 +11,7 @@ const Proposal: NextPage = () => {
   return (
     <div className='flex flex-col gap-10 max-w-[500px] w-full'>
       <TextArea
+        size='sm'
         name='cover_letter'
         className='h-[150px]'
         placeholder='Write your cover letter...'

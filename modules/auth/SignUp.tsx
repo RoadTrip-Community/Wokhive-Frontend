@@ -20,8 +20,7 @@ const SignUp: NextPage = () => {
   };
 
   const handleSignUp = () => {
-    if (selectedOption === 'client') router.push('/auth/client/signup');
-    if (selectedOption === 'freelancer') router.push('/auth/freelancer/signup');
+    if (selectedOption) router.push(ROUTES.USERSIGNUP(selectedOption));
   };
 
   return (

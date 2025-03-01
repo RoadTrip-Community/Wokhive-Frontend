@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import Sidebar from '@/components/sidebar';
-import DashboardNavbar from '@/components/dashboardNavbar';
+import DashboardLayout from './dashboardLayout';
 
 export const metadata: Metadata = {
   title: {
@@ -11,16 +10,6 @@ export const metadata: Metadata = {
     'Manage your freelance projects efficiently with the Wokhive dashboard. Connect with clients, track progress, and collaborate seamlessly.',
 };
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className='flex w-full bg-white'>
-      <Sidebar />
-      <div className='flex-grow flex-col ml-[280px] bg-white'>
-        <DashboardNavbar />
-        <main className='flex-grow h-[calc(100vh-70px)] mt-[70px] overflow-x-hidden overflow-y-scroll relative'>
-          {children}
-        </main>
-      </div>
-    </div>
-  );
+export default function DashboardLayoutWrapper({ children }: { children: React.ReactNode }) {
+  return <DashboardLayout>{children}</DashboardLayout>;
 }

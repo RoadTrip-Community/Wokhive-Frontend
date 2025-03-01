@@ -11,7 +11,7 @@ import { ArrowLeft } from 'iconsax-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
 
-const Kyc: NextPage<{ type: 'FREELANCER' | 'CLIENT' }> = ({ type }) => {
+const Kyc: NextPage<userType> = ({ userType }) => {
   const router = useRouter();
   const searchParms = useSearchParams();
   const [isStepOneComplete, setIsStepOneComplete] = useState(false);
@@ -32,11 +32,11 @@ const Kyc: NextPage<{ type: 'FREELANCER' | 'CLIENT' }> = ({ type }) => {
   const handleNext = () => {
     if (step === 3) return;
 
-    router.push(`${ROUTES[`${type}KYC`]}?step=${step + 1}`);
+    router.push(`${ROUTES.KYC(userType)}?step=${step + 1}`);
   };
 
   const handlePrevious = () => {
-    router.push(`${ROUTES[`${type}KYC`]}?step=${step - 1}`);
+    router.push(`${ROUTES.KYC(userType)}?step=${step - 1}`);
     setIsStepTwoComplete(false);
     setIsStepOneComplete(false);
   };
@@ -63,7 +63,7 @@ const Kyc: NextPage<{ type: 'FREELANCER' | 'CLIENT' }> = ({ type }) => {
         <div className={`${step === 3 && 'w-full'}`}>
           {step === 1 && <KycStepOne onComplete={setIsStepOneComplete} />}
           {step === 2 && <KycStepTwo onComplete={setIsStepTwoComplete} />}
-          {step === 3 && <KycStepThree type={type} />}
+          {step === 3 && <KycStepThree userType={userType} />}
         </div>
       </div>
       {step < 3 && (

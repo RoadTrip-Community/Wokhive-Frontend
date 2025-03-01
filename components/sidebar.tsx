@@ -47,12 +47,13 @@ const sidebarOthers = [
   },
   {
     title: 'Sign out',
-    href: ROUTES.SIGN_OUT,
     icon: <SidebarIcons.SignOutIcon />,
   },
 ];
 
-const Sidebar: NextPage = () => {
+const Sidebar: NextPage<{
+  setSignoutModal: (value: boolean) => void;
+}> = ({ setSignoutModal }) => {
   const pathname = usePathname();
 
   return (
@@ -81,32 +82,47 @@ const Sidebar: NextPage = () => {
       </div>
 
       <div className='flex flex-col gap-8'>
-        {sidebarOthers.map((item, index) => (
-          <Link
-            href={item.href}
-            key={index}
-            className={`flex items-center gap-4 self-stretch py-2 transition-all duration-500 ${
-              pathname === item.href
-                ? 'text-primary-purple-60 border-r-8 border-primary-purple-60'
-                : item.title === 'Sign out'
-                ? 'text-error-error'
-                : 'text-gray-900'
-            }`}
-          >
-            {item.icon}
-            <p
-              className={`text-xl ${
-                pathname === item.href && pathname !== '-out'
-                  ? 'text-primary-purple-60 font-semibold'
+        {sidebarOthers.map((item, index) =>
+          item.href ? (
+            <Link
+              href={item.href}
+              key={index}
+              className={`flex items-center gap-4 self-stretch py-2 transition-all duration-500 ${
+                pathname === item.href
+                  ? 'text-primary-purple-60 border-r-8 border-primary-purple-60'
                   : item.title === 'Sign out'
                   ? 'text-error-error'
                   : 'text-gray-900'
               }`}
             >
-              {item.title}
-            </p>
-          </Link>
-        ))}
+              {item.icon}
+              <p
+                className={`text-xl ${
+                  pathname === item.href && pathname !== '-out'
+                    ? 'text-primary-purple-60 font-semibold'
+                    : item.title === 'Sign out'
+                    ? 'text-error-error'
+                    : 'text-gray-900'
+                }`}
+              >
+                {item.title}
+              </p>
+            </Link>
+          ) : (
+            <button
+              key={index}
+              className={`flex items-center gap-4 self-stretch py-2 transition-all duration-500 ${
+                item.title === 'Sign out' ? 'text-error-error' : 'text-gray-900'
+              }`}
+              onClick={item.title === 'Sign out' ? () => setSignoutModal(true) : () => {}}
+            >
+              {item.icon}
+              <p className={`text-xl ${item.title === 'Sign out' ? 'text-error-error' : 'text-gray-900'}`}>
+                {item.title}
+              </p>
+            </button>
+          ),
+        )}
       </div>
     </div>
   );

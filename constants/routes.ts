@@ -12,19 +12,16 @@ export const ROUTES = {
   COOKIE: '/legal/cookie-policy',
 
   // auth
-  SIGNIN: '/#waitlist',
-  SIGNUP: '/#waitlist',
+  SIGNIN: '/auth/signin',
+  SIGNUP: '/auth/signup',
   FORGOTPASSWORD: '/auth/forgot-password',
   RESETPASSWORD: '/auth/reset-password',
   RESETSUCCESS: '/auth/reset-password/success',
-  FREELANCERSIGNUP: '/auth/freelancer/signup',
-  CLIENTSIGNUP: '/auth/client/signup',
+  USERSIGNUP: (user: 'client' | 'freelancer') => `/auth/${user}/signup`,
 
   // onboard
-  ONBOARDFREELANCER: '/freelancer/onboard',
-  FREELANCERKYC: '/freelancer/onboard/kyc',
-  CLIENTKYC: '/client/onboard/kyc',
-  ONBOARDCLIENT: '/client/onboard',
+  ONBOARD: (user: 'client' | 'freelancer') => `/${user}/onboard`,
+  KYC: (user: 'client' | 'freelancer') => `/${user}/onboard/kyc`,
 
   // dashboard
   DASHBOARD: '/dashboard',

@@ -7,6 +7,6 @@ export const metadata: Metadata = {
   description: 'Sign up as a client on Wokhive',
 };
 
-const ClientSignUp: NextPage = () => <SignUpForm userType='CLIENT' />;
+const ClientSignUp: NextPage = () => <SignUpForm userType='client' />;
 
 export default ClientSignUp;
