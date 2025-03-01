@@ -7,6 +7,7 @@ import ProjectTimeline from './projectTimeline';
 
 const Projects: NextPage = () => {
   const [activeTab, setActiveTab] = useState('contract');
+  
 
   return (
     <div className='flex pt-6 flex-col gap-10 px-10'>

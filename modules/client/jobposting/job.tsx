@@ -1,29 +1,101 @@
-'use client';
-import { useState } from 'react';
-import { ArrowDown2 } from 'iconsax-react';
-import Link from 'next/link';
-import React from 'react';
-import GridJob from './gridJob';
-import ListJob from './listJob';
+"use client";
+import { ROUTES } from "@/constants/routes";
+import Link from "next/link";
+import { useState } from "react";
+import GridView from "./grid";
+import ListView from "./list";
 
-const AllPosting = () => {
-  const [view, setView] = useState('grid');
+interface Job {
+  id: string;
+  image: string;
+  title: string;
+  type: string;
+  date: string;
+  amount: string;
+  status: string;
+}
+
+const jobs: Job[] = [
+  {
+    image: "/assets/images/twitter.png",
+    title: "Web Designer needed for a contract role",
+    type: "contract",
+    date: "3 months",
+    amount: "130000",
+    status: "active",
+    id: "1"
+  },
+  // {
+  //   image: "/assets/images/twitter.png",
+  //   title: "Web Designer needed for a contract role",
+  //   type: "contract",
+  //   date: "3 months",
+  //   amount: "130000",
+  //   status: "closed",
+  // },
+  // {
+  //   image: "/assets/images/twitter.png",
+  //   title: "Web Designer needed for a contract role",
+  //   type: "contract",
+  //   date: "3 months",
+  //   amount: "130000",
+  //   status: "closed",
+  // },
+  // {
+  //   image: "/assets/images/twitter.png",
+  //   title: "Web Designer needed for a contract role",
+  //   type: "contract",
+  //   date: "3 months",
+  //   amount: "130000",
+  //   status: "active",
+  // },
+];
+
+
+
+
+const Jobposting = () => {
+  const [activeTab, setActiveTab] = useState("all");
+  const [view, setViewType] = useState("grid"); // Default to grid view
+
+  const filteredJobs: Job[] = jobs?.filter(
+    (job) => activeTab === "all" || job.status === activeTab
+  );
 
   return (
-    <div className='flex pt-6 pb-20 flex-col gap-8 px-10'>
-      <div className='flex justify-between items-center self-stretch'>
-        <div className='flex items-center gap-2'>
-          <h3 className='text-gray-900 font-medium text-Display-sm'>All postings</h3>
-          <ArrowDown2 color='#101828' />
-        </div>
+    <div className="p-5">
+      <div className="flex justify-between items-center">
+      <select
+          className=""
+          style={{
+            color: "#101828",
+            fontFamily: "Whyte Inktrap",
+            fontSize: "30px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "38px",
+          }}
+          onChange={(e) => setActiveTab(e.target.value)}
+          value={activeTab}
+        >
+          <option value="all">All postings</option>
+          <option value="active">Active postings</option>
+          <option value="closed">Closed postings</option>
+        </select>
 
-        <Link href='#' className='font-medium text-primary-purple-60 text-Text-sm underline'>
-          View saved contracts
+        <Link
+          href={ROUTES.CLIENT_NEW_PROJECT}
+          className="rounded-lg px-4 py-3 bg-primary-purple-60 text-white"
+        >
+          Post a new project
         </Link>
       </div>
-      <div className='flex justify-end items-center gap-6'>
-        <button onClick={() => setView('grid')}>
-          <svg
+
+      {/* Toggle View (Grid/List) */}
+      <div className="flex justify-end gap-5 mt-5">
+        {/* Grid View Icon */}
+        <button onClick={() => setViewType("grid")}>
+        <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
             height='25'
@@ -70,8 +142,9 @@ const AllPosting = () => {
           </svg>
         </button>
 
-        <button onClick={() => setView('list')}>
-          <svg
+        {/* List View Icon */}
+        <button onClick={() => setViewType("list")}>
+        <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
             height='24'
@@ -97,29 +170,13 @@ const AllPosting = () => {
           </svg>
         </button>
       </div>
-      <div className={`flex gap-6 flex-wrap ${view === 'list' && 'flex-col'}`}>
-        {view === 'grid' ? (
-          <>
-            {Array.from({ length: 6 }).map((_, i) => (
-              <GridJob key={i} />
-            ))}
-          </>
-          
-        ) : (
-          <>
-            <div className='flex w-full justify-between gap-20 border border-gray-900 opacity-70 rounded-md p-3 bg-[#FAFAFA]'>
-              <p className='text-gray-900 text-Text-lg basis-1/2'>Job Posting</p>
-              <p className='text-gray-900 text-Text-lg text-center basis-3/12'>Contract</p>
-              <p className='text-gray-900 text-Text-lg text-center basis-3/12'>Pay</p>
-            </div>
-            {Array.from({ length: 6 }).map((_, i) => (
-              <ListJob key={i} />
-            ))}
-          </>
-        )}
+
+      {/* Render View */}
+      <div className="mt-5">
+        {view === "grid" ? <GridView filteredJobs={filteredJobs} /> : <ListView filteredJobs={filteredJobs} />}
       </div>
     </div>
   );
 };
 
-export default AllPosting;
+export default Jobposting;

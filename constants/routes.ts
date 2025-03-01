@@ -39,6 +39,7 @@ export const ROUTES = {
   ////CLIENT DASHBOARD
   CLIENT: '/client',
   CLIENT_JOB_POSTINGS: '/client/job-postings',
+  VIEW_APPLICANT_PROFILE: '/client/applicants',
   CLIENT_PROJECTS: '/client/projects',
   CLIENT_NEW_PROJECT: '/client/new-project',
   CLIENT_MESSAGE: '/client/messages',

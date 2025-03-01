@@ -6,6 +6,8 @@ import Image from 'next/image';
 import arrowRight from '@/public/assets/svgs/icons/arrow-up-right.svg';
 import TaskCard from './taskCard';
 
+
+
 const Dashboard: NextPage = () => {
   return (
     <div className='flex pt-6 pb-20 flex-col gap-8 w-full px-10'>

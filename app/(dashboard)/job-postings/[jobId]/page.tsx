@@ -9,4 +9,5 @@ export const metadata: Metadata = {
 
 const JobDetailsPage: NextPage = () => <JobDetails />;
 
+
 export default JobDetailsPage;

@@ -47,7 +47,7 @@ const Project: NextPage = () => {
       </div>
 
       {/* router.push(`/dashboard/assets/edit/${itemId}`); */}
-      <div className='grid grid-cols-3 gap-5'>
+      <div className='flex justify-between flex-wrap gap-5'>
         {project.map((project, index) => (
           <Link
             href={`${ROUTES.CLIENT_PROJECTS}/${slugify(project.title, { lower: true })}`}
