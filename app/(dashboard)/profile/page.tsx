@@ -1,11 +1,12 @@
+import Profile from '@/modules/freelancer/dashboard/profile';
 import { NextPage, Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Profile - Manage Your Workhive Account',
+  title: 'Profile - Manage Your Wokhive Account',
   description:
-    'Manage your Workhive account and personalize your profile with the Profile dashboard. Update your skills, portfolio, and preferences effortlessly.',
+    'Manage your Wokhive account and personalize your profile with the Profile dashboard. Update your skills, portfolio, and preferences effortlessly.',
 };
 
-const ProfilePage: NextPage = () => <div>Profile</div>;
+const ProfilePage: NextPage = () => <Profile />;
 
 export default ProfilePage;

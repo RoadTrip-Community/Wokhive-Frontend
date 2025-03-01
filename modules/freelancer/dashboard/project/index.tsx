@@ -1,26 +1,24 @@
 'use client';
 import { NextPage } from 'next';
 import { useState } from 'react';
-import { useParams } from 'next/navigation';
-import ContractInfo from "./contractInfo";
-import ProgressReview from './progress';
-import ProjectTimeline from './timeline';
+import ContractInfo from './contractInfo';
+import ProgressReview from './progressReview';
+import ProjectTimeline from './projectTimeline';
 
-const Details: NextPage = () => {
-  const { name } = useParams<{ name?: string }>();
-
+const Projects: NextPage = () => {
   const [activeTab, setActiveTab] = useState('contract');
+  
 
   return (
-    <div className='flex flex-col gap-3'>
-      <h1 className='text-gray-900 font-whyte text-3xl font-medium'>{name?.split('-').join(' ')}</h1>
+    <div className='flex pt-6 flex-col gap-10 px-10'>
+      <div className='flex flex-col gap-4'>
+        <h3 className='text-gray-900 font-medium text-Display-sm'>Website Design Project</h3>
+        <p className='text-gray-700 text-Text-xl'>
+          You’re contracting for <span className='text-gray-900 font-semibold'>John Doe</span>
+        </p>
+      </div>
 
-      <p className='text-gray-700 font-romela text-xl font-normal'>
-        You’re contracting for <span className='text-gray-900 font-semibold'>John Doe</span>
-      </p>
-
-
-      <div className='flex gap-10 border-b rounded-lg border-gray-200 mt-5 mb-5'>
+      <div className='flex gap-10 border-b rounded-lg border-gray-200'>
         <button onClick={() => setActiveTab('contract')}>
           <p
             className={`border-b-4 ${
@@ -43,22 +41,22 @@ const Details: NextPage = () => {
             Progress review document
           </p>
         </button>
-        <button onClick={() => setActiveTab('timeline')}>
+        <button onClick={() => setActiveTab('project')}>
           <p
             className={`border-b-4 ${
-              activeTab === 'timeline' ? 'border-primary-purple-60 text-primary-purple-60' : 'border-none text-gray-500 '
+              activeTab === 'project' ? 'border-primary-purple-60 text-primary-purple-60' : 'border-none text-gray-500 '
             } text-Text-xl font-semibold`}
           >
             Project timeline
           </p>
         </button>
       </div>
-        {activeTab === "contract" && <ContractInfo/>}
-        {activeTab === "progress" && <ProgressReview/>}
-        {activeTab === "timeline" && <ProjectTimeline/>}
+
+      {activeTab === 'contract' && <ContractInfo />}
+      {activeTab === 'progress' && <ProgressReview />}
+      {activeTab === 'project' && <ProjectTimeline />}
     </div>
-    
   );
 };
 
-export default Details;
+export default Projects;

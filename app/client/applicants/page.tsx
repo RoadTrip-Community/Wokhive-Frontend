@@ -1,12 +1,12 @@
 import { NextPage, Metadata } from 'next';
-import Job from '@/modules/client/jobposting/job'
+import ApplicantPage from "@/modules/client/applicant/applicant"
 
 export const metadata: Metadata = {
-  title: 'Jobs - Manage Your Freelance Projects',
+  title: 'Applicant - View Applicant profile',
   description:
     'Efficiently manage your jobs and collaborations with the Projects dashboard on Workhive. Track progress, milestones, and deadlines effortlessly.',
 };
 
-const JobPage: NextPage = () => <Job/>;
+const Applicant: NextPage = () => <ApplicantPage/>;
 
-export default JobPage;
+export default Applicant;

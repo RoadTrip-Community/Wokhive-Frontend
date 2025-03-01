@@ -1,13 +1,12 @@
 import { NextPage, Metadata } from 'next';
-import Project from '@/modules/client/project/project';
+import NewProject from '@/modules/client/newproject/newProject';
 
 export const metadata: Metadata = {
-  title: 'Projects - Manage Your Freelance Projects',
+  title: 'New Project - create new project',
   description:
     'Efficiently manage your freelance projects and collaborations with the Projects dashboard on Workhive. Track progress, milestones, and deadlines effortlessly.',
 };
 
-const ProjectsPage: NextPage = () => <Project />;
+const NewProjectPage: NextPage = () => <NewProject />;
 
-
-export default ProjectsPage;
+export default NewProjectPage;

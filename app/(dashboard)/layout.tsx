@@ -4,11 +4,11 @@ import DashboardNavbar from '@/components/dashboardNavbar';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Workhive Dashboard',
-    template: '%s | Workhive Dashboard',
+    default: 'Wokhive Dashboard',
+    template: '%s | Wokhive Dashboard',
   },
   description:
-    'Manage your freelance projects efficiently with the Workhive dashboard. Connect with clients, track progress, and collaborate seamlessly.',
+    'Manage your freelance projects efficiently with the Wokhive dashboard. Connect with clients, track progress, and collaborate seamlessly.',
 };
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -17,7 +17,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <Sidebar />
       <div className='flex-grow flex-col ml-[280px] bg-white'>
         <DashboardNavbar />
-        <main className='flex-grow h-[calc(100vh-70px)] mx-8 px-2 mt-[70px] pb-6 overflow-hidden relative'>
+        <main className='flex-grow h-[calc(100vh-70px)] mt-[70px] overflow-x-hidden overflow-y-scroll relative'>
           {children}
         </main>
       </div>

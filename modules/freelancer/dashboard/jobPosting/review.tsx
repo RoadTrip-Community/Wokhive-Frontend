@@ -60,9 +60,9 @@ const ProposalReview: NextPage = () => {
       </div>
 
       <div className='flex flex-col gap-4'>
-        <Link href={'https//www.linkedin.com/slnf'}>https//www.linkedin.com/slnf</Link>
-        <Link href={'https//www.x.com/slnf'}>https//www.x.com/slnf</Link>
-        <Link href={'https//www.dribble.com/slnf'}>https//www.dribble.com/slnf</Link>
+        <Link href={'https://www.linkedin.com/slnf'}>https://www.linkedin.com/slnf</Link>
+        <Link href={'https://www.x.com/slnf'}>https:/www.x.com/slnf</Link>
+        <Link href={'https://www.dribble.com/slnf'}>https://www.dribble.com/slnf</Link>
       </div>
 
       <div className='flex flex-col gap-4'>

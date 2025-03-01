@@ -1,4 +1,4 @@
-import JobDetails from '@/modules/jobPosting/jobDetails';
+import JobDetails from '@/modules/freelancer/dashboard/jobPosting/jobDetails';
 import { NextPage, Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,5 +8,6 @@ export const metadata: Metadata = {
 };
 
 const JobDetailsPage: NextPage = () => <JobDetails />;
+
 
 export default JobDetailsPage;

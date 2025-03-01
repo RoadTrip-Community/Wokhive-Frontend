@@ -32,7 +32,7 @@ export const ROUTES = {
   MESSAGE: '/messages',
   CONTRACTS: '/contracts',
   JOB_POSTINGS: '/job-postings',
-  SENDPROPOSAL: '/job-postings/send-proposal',
+  SENDPROPOSAL: (jobId: string) => `/job-postings/${jobId}/send-proposal`,
   PROFILE: '/profile',
   SETTINGS: '/settings',
   SIGN_OUT: '/sign-out',
@@ -42,6 +42,7 @@ export const ROUTES = {
   ////CLIENT DASHBOARD
   CLIENT: '/client',
   CLIENT_JOB_POSTINGS: '/client/job-postings',
+  VIEW_APPLICANT_PROFILE: '/client/applicants',
   CLIENT_PROJECTS: '/client/projects',
   CLIENT_NEW_PROJECT: '/client/new-project',
   CLIENT_MESSAGE: '/client/messages',

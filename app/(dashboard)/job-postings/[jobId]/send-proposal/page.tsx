@@ -1,4 +1,4 @@
-import SendProposal from '@/modules/jobPosting/sendProposal';
+import SendProposal from '@/modules/freelancer/dashboard/jobPosting/sendProposal';
 import React from 'react';
 
 const SendProposalPage = () => <SendProposal />;

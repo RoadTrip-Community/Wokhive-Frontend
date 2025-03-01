@@ -1,4 +1,4 @@
-import AllPosting from '@/modules/jobPosting/allPosting';
+import AllPosting from '@/modules/freelancer/dashboard/jobPosting/allPosting';
 import { NextPage, Metadata } from 'next';
 
 export const metadata: Metadata = {

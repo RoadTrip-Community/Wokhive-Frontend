@@ -1,3 +1,4 @@
+import Projects from '@/modules/freelancer/dashboard/project';
 import { NextPage, Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,6 +7,6 @@ export const metadata: Metadata = {
     'Efficiently manage your freelance projects and collaborations with the Projects dashboard on Workhive. Track progress, milestones, and deadlines effortlessly.',
 };
 
-const ProjectsPage: NextPage = () => <div>Projects</div>;
+const ProjectsPage: NextPage = () => <Projects />;
 
 export default ProjectsPage;

@@ -182,7 +182,7 @@ const Sidebar: NextPage = () => {
             href={item.href}
             key={index}
             className={`flex items-center gap-4 self-stretch py-2 transition-all duration-500 ${
-              pathname === item.href
+              pathname.includes(item.href)
                 ? 'text-primary-purple-60 border-r-8 border-primary-purple-60 font-semibold'
                 : 'text-gray-900'
             }`}

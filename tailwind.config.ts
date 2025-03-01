@@ -47,6 +47,9 @@ const config: Config = {
           'grey-7': '#F9F9F9',
         },
         gray: {
+          
+          10: '#FAFAFA',
+          15: '#FBFBFB',
           25: '#FCFCFD',
           50: '#F9FAFB',
           100: '#F2F4F7',

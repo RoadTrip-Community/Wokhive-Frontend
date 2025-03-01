@@ -31,11 +31,36 @@ const project = [
     title: 'Web app project',
     subtitle: 'You and Filomena',
   },
+  {
+    image: '/assets/images/web_app.png',
+    title: 'Web app project',
+    subtitle: 'You and Filomena',
+  },
+  {
+    image: '/assets/images/web_app.png',
+    title: 'Web app project',
+    subtitle: 'You and Filomena',
+  },
+  {
+    image: '/assets/images/web_app.png',
+    title: 'Web app project',
+    subtitle: 'You and Filomena',
+  },
+  {
+    image: '/assets/images/web_app.png',
+    title: 'Web app project',
+    subtitle: 'You and Filomena',
+  },
+  {
+    image: '/assets/images/web_app.png',
+    title: 'Web app project',
+    subtitle: 'You and Filomena',
+  },
 ];
 
 const Dashboard: NextPage = () => {
   return (
-    <div className='flex pb-20 flex-col gap-8 max-w-6xl'>
+    <div className='flex pb-20 flex-col gap-8 w-full'>
       {/* SECTION onboarding banner */}
       <div className='flex w-full p-6 justify-between items-center gap-10 rounded-lg bg-secondary-lemon-10'>
         <div className='flex flex-col gap-2'>
@@ -50,15 +75,18 @@ const Dashboard: NextPage = () => {
       </div>
       {/* !SECTION onboarding banner */}
 
-      <div className='flex flex-col gap-5 max-w-[1086px]'>
+      <div className='flex flex-col gap-5 w-full'>
         <h1 className='text-Display-md font-medium text-gray-700'>Hello John,</h1>
         <div className='flex flex-col gap-4'>
-          <Link
-            href={ROUTES.CLIENT_NEW_PROJECT}
-            className='w-[20%] bg-primary-purple-60 rounded-lg px-4 py-2 text-center text-white shadow-shadow/xs font-inter text-sm font-semibold'
-          >
-            Post a new job
-          </Link>
+          <div>
+            <Link
+              href={ROUTES.CLIENT_NEW_PROJECT}
+              className='bg-primary-purple-60 rounded-lg px-4 py-3 text-center text-white shadow-shadow/xs font-inter text-sm font-semibold'
+            >
+              Post a new job
+            </Link>
+          </div>
+         
 
           <div className='flex justify-between items-center'>
             <h1 className='text-gray-700 font-romela text-2xl'>Ongoing projects</h1>
@@ -81,7 +109,7 @@ const Dashboard: NextPage = () => {
             </div>
           </div>
 
-          <div className='flex justify-between items-center'>
+          <div className='flex justify-between items-center  mt-5'>
             <h1 className='text-gray-700 font-romela text-2xl'>Job Posting</h1>
             <Link
               href={ROUTES.CLIENT_JOB_POSTINGS}

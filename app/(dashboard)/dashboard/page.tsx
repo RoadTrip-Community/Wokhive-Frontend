@@ -1,4 +1,4 @@
-import Dashboard from '@/modules/overview/dashboard';
+import Dashboard from '@/modules/freelancer/dashboard/overview/dashboard';
 import { NextPage } from 'next';
 import React from 'react';
 
