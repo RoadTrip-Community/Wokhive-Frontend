@@ -4,11 +4,11 @@ import ClientDashboardNav from '@/components/client/clientDashboardNav';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Workhive Dashboard',
-    template: '%s | Workhive Client Dashboard',
+    default: 'Wokhive Dashboard',
+    template: '%s | Wokhive Client Dashboard',
   },
   description:
-    'Manage your projects efficiently with the Workhive dashboard. Connect with freelancer, track progress, and collaborate seamlessly.',
+    'Manage your projects efficiently with the Wokhive dashboard. Connect with freelancer, track progress, and collaborate seamlessly.',
 };
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

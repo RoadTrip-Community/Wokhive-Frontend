@@ -3,7 +3,7 @@ import Kyc from '@/modules/kyc/Kyc';
 import { NextPage } from 'next';
 
 const FreelancerKyc: NextPage = () => {
-  return <Kyc type='FREELANCER' />;
+  return <Kyc userType='freelancer' />;
 };
 
 export default FreelancerKyc;

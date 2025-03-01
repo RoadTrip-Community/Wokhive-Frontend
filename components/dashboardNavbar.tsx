@@ -3,6 +3,8 @@ import React from 'react';
 import { Notification } from 'iconsax-react';
 import BreadCrumbs from './UI/breadCrumbs';
 import { usePathname } from 'next/navigation';
+import avatar from '@/public/assets/svgs/freelancerVerified.svg';
+import Image from 'next/image';
 
 const DashboardNavbar = () => {
   const pathname = usePathname();
@@ -15,12 +17,14 @@ const DashboardNavbar = () => {
       <div className='flex pl-2.5 justify-center items-center gap-2.5'>
         <div className='p-2.5 flex justify-center items-center rounded-lg relative'>
           <Notification size='20' color='#101828' />
-          <p className='flex justify-center items-center w-3.5 h-3.5 shrink-0 bg-secondary-purple-40 rounded-full text-[20%] font-bold text-primary-purple-60 absolute top-1 right-1.5'>
-            3
-          </p>
+          <div className='flex justify-center items-center w-3.5 h-3.5 shrink-0 bg-secondary-purple-40 rounded-full absolute top-1 right-1.5'>
+            <p className='font-bold text-primary-purple-60 text-[10px]'>3</p>
+          </div>
         </div>
         <div className='flex px-2.5 justify-center items-center gap-2.5'>
-          <div className='w-11 h-11 rounded-full border-2 border-primary-purple-60'></div>
+          <div className='w-11 h-11 rounded-full border-2 border-primary-purple-60 overflow-hidden'>
+            <Image src={avatar} alt='avatar' width={44} height={44} className='rounded-full' />
+          </div>
           <p className='text-primary-purple-60 font-medium text-xl'>John Doe</p>
         </div>
       </div>

@@ -12,7 +12,7 @@ import bgOverlay from '@/public/assets/svgs/signup_bg.svg';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useSignup } from '@/hooks/signup';
 import { useSignIn } from '@/hooks/signin';
 import { useGoogleSignUp } from '@/hooks/googleAuth';
@@ -21,7 +21,7 @@ import { ROUTES } from '@/constants/routes';
 import { generateRandomString } from '@/helpers/validation';
 
 interface SignupFormProps {
-  userType: 'CLIENT' | 'FREELANCER';
+  userType: 'client' | 'freelancer';
 }
 
 const signUpSchema = z.object({
@@ -39,7 +39,7 @@ const signUpSchema = z.object({
 });
 
 const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
-  // const router = useRouter();
+  const router = useRouter();
   const signUpMutation = useSignup();
   const signInMutation = useSignIn();
   const googleSignUpMutation = useGoogleSignUp();
@@ -70,14 +70,14 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
         password,
         first_name,
         last_name,
-        role: userType.toLowerCase(),
+        role: userType,
       },
       {
         onSuccess: async (res) => {
           const { token } = (await res).data;
           await activateAccountMutation.mutateAsync({ token, email });
           await signInMutation.mutateAsync({ email, password });
-          // router.push(ROUTES[`ONBOARD${userType}`]);
+          router.push(ROUTES.ONBOARD(userType));
           reset();
         },
       },
@@ -97,7 +97,7 @@ const SignUpForm: NextPage<SignupFormProps> = ({ userType }) => {
           </div>
 
           <div className='flex w-[478px] pb-8 flex-col items-start gap-8'>
-            <h3 className='text-gray-900 text-Display-xs font-medium'>Sign up as a {userType.toLowerCase()}</h3>
+            <h3 className='text-gray-900 text-Display-xs font-medium'>Sign up as a {userType}</h3>
 
             <div className='flex w-full flex-col items-start gap-6'>
               <SocialButton disabled={signUpMutation.isPending} className='w-full' onClick={googleSignUp} />

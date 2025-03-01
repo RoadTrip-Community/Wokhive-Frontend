@@ -62,6 +62,10 @@ interface InputProps extends customInputProps, React.InputHTMLAttributes<HTMLInp
 
 interface TextAreaProps extends customInputProps, React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
+interface SelectProps extends customInputProps, React.SelectHTMLAttributes<HTMLSelectElement> {
+  options: { label: string; value: string }[];
+}
+
 interface SocialButtonProps {
   platform?: 'google' | 'facebook' | 'apple' | 'twitter' | 'figma' | 'dribble';
   theme?: 'brand' | 'colorWithBrand' | 'color';
@@ -166,6 +170,13 @@ interface ClientOnboardingContextProps {
   setCareerInfo: React.Dispatch<React.SetStateAction<typeof initialCareerInfo>>;
   setBankInfo: React.Dispatch<React.SetStateAction<typeof initialBankInfo>>;
 }
+///////////////////////////
+///////////////////////////
+
+interface userType {
+  userType: 'freelancer' | 'client';
+}
+
 ///////////////////////////
 ///////////////////////////
 // Freelancer Types
