@@ -1,6 +1,26 @@
 import React from 'react';
 import { NextPage } from 'next';
 import Image from 'next/image';
+import {
+  facebookBrand,
+  facebookColorWithBrand,
+  facebookColor,
+  googleBrand,
+  googleColorWithBrand,
+  googleColor,
+  figmaBrand,
+  figmaColorWithBrand,
+  figmaColor,
+  dribbleBrand,
+  dribbleColorWithBrand,
+  dribbleColor,
+  twitterBrand,
+  twitterColorWithBrand,
+  twitterColor,
+  appleBrand,
+  appleColorWithBrand,
+  appleColor,
+} from './socialIcons';
 
 const SocialButton: NextPage<SocialButtonProps> = ({
   platform = 'google',
@@ -15,34 +35,34 @@ const SocialButton: NextPage<SocialButtonProps> = ({
 }) => {
   const platformLogos = {
     facebook: {
-      brand: '/assets/svgs/social-icons/social-icon.svg',
-      colorWithBrand: '/assets/svgs/social-icons/social-icon-1.svg',
-      color: '/assets/svgs/social-icons/social-icon-2.svg',
+      brand: facebookBrand,
+      colorWithBrand: facebookColorWithBrand,
+      color: facebookColor,
     },
     google: {
-      brand: '/assets/svgs/social-icons/social-icon-3.svg',
-      colorWithBrand: '/assets/svgs/social-icons/social-icon-3.svg',
-      color: '/assets/svgs/social-icons/social-icon-4.svg',
+      brand: googleBrand,
+      colorWithBrand: googleColorWithBrand,
+      color: googleColor,
     },
     figma: {
-      brand: '/assets/svgs/social-icons/social-icon-5.svg',
-      colorWithBrand: '/assets/svgs/social-icons/social-icon-5.svg',
-      color: '/assets/svgs/social-icons/social-icon-6.svg',
+      brand: figmaBrand,
+      colorWithBrand: figmaColorWithBrand,
+      color: figmaColor,
     },
     dribble: {
-      brand: '/assets/svgs/social-icons/social-icon-10.svg',
-      colorWithBrand: '/assets/svgs/social-icons/social-icon-11.svg',
-      color: '/assets/svgs/social-icons/social-icon-7.svg',
+      brand: dribbleBrand,
+      colorWithBrand: dribbleColorWithBrand,
+      color: dribbleColor,
     },
     twitter: {
-      brand: '/assets/svgs/social-icons/social-icon-12.svg',
-      colorWithBrand: '/assets/svgs/social-icons/social-icon-13.svg',
-      color: '/assets/svgs/social-icons/social-icon-14.svg',
+      brand: twitterBrand,
+      colorWithBrand: twitterColorWithBrand,
+      color: twitterColor,
     },
     apple: {
-      brand: '/assets/svgs/social-icons/social-icon-8.svg',
-      colorWithBrand: '/assets/svgs/social-icons/social-icon-15.svg',
-      color: '/assets/svgs/social-icons/social-icon-16.svg',
+      brand: appleBrand,
+      colorWithBrand: appleColorWithBrand,
+      color: appleColor,
     },
   };
 
