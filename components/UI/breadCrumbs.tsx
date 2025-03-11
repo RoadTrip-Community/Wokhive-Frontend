@@ -1,5 +1,5 @@
 'use client';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { NextPage } from 'next';
 import React from 'react';
@@ -15,6 +15,7 @@ const BreadCrumbs: NextPage<BreadCrumbProps> = ({
   goBack = true,
 }) => {
   const paths = usePathname();
+  const { back } = useRouter();
   const pathNames = paths.split('/').filter((path) => path);
 
   separator = (
@@ -35,7 +36,7 @@ const BreadCrumbs: NextPage<BreadCrumbProps> = ({
 
   return (
     <section className='flex items-center gap-6'>
-      {goBack && <ArrowLeft color='#101828' />}
+      {goBack && <ArrowLeft onClick={back} className='cursor-pointer' color='#101828' />}
       <ul className={containerClasses}>
         {homeElement && (
           <>

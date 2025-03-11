@@ -1,6 +1,6 @@
-import React from 'react';
+import { NextPage } from 'next';
 
-const FreelancerSvgs = () => {
+const FreelancerSvgs: NextPage = () => {
   return (
     <div>
       <svg

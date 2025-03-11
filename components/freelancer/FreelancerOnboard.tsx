@@ -67,27 +67,27 @@ const FreelancerOnboard: NextPage = () => {
     }
 
     if (step === 4) {
-      router.push(ROUTES.FREELANCERKYC);
+      router.push(ROUTES.KYC('freelancer'));
       return;
     }
 
-    router.push(`${ROUTES.ONBOARDFREELANCER}?step=${Number(step) + 1}`);
+    router.push(`${ROUTES.ONBOARD('freelancer')}?step=${Number(step) + 1}`);
   };
 
   const handlePrevious = () => {
     if (step === 1) {
-      router.push(ROUTES.ONBOARDFREELANCER);
+      router.push(ROUTES.ONBOARD('freelancer'));
       return;
     }
-    router.push(`${ROUTES.ONBOARDFREELANCER}?step=${Number(step) - 1}`);
+    router.push(`${ROUTES.ONBOARD('freelancer')}?step=${Number(step) - 1}`);
   };
 
   if (!step) {
-    return <OnboardingStartScreen onStart={() => router.push(`${ROUTES.ONBOARDFREELANCER}?step=1`)} />;
+    return <OnboardingStartScreen onStart={() => router.push(`${ROUTES.ONBOARD('freelancer')}?step=1`)} />;
   }
 
   const handleSkip = () => {
-    router.push(ROUTES.FREELANCERKYC);
+    router.push(ROUTES.KYC('freelancer'));
     return;
   };
 

@@ -167,7 +167,7 @@ export const Input: NextPage<InputProps> = ({
 };
 
 export const TextArea: NextPage<TextAreaProps> = ({
-  size = 'md',
+  size = 'sm',
   inputType = 'default',
   label,
   hintText,
@@ -184,8 +184,8 @@ export const TextArea: NextPage<TextAreaProps> = ({
   ...rest
 }) => {
   const sizeClasses: { [K in TextAreaProps['size'] as string]?: string } = {
-    sm: 'py-2 px-3 text-Text-sm h-10',
-    md: 'py-2 px-4 text-base',
+    sm: 'py-2 px-3 text-Text-sm h-20',
+    md: 'py-2 px-4 text-base h-32',
   };
 
   const classNames = `inline-flex gap-2 items-center relative  rounded-lg shadow border  ${sizeClasses[size]} ${
@@ -250,6 +250,131 @@ export const TextArea: NextPage<TextAreaProps> = ({
         textarea:disabled {
           background-color: transparent;
           opacity: 1;
+          color: '#667085';
+        }
+      `}</style>
+    </>
+  );
+};
+
+export const Select: NextPage<SelectProps> = ({
+  size = 'md',
+  label,
+  hintText,
+  helpIcon,
+  icon,
+  name,
+  value,
+  onChange,
+  register,
+  disabled,
+  className,
+  placeholder,
+  options,
+  ...rest
+}) => {
+  const sizeClasses: { [K in SelectProps['size'] as string]?: string } = {
+    sm: 'py-2 px-3 text-Text-sm h-10',
+    md: 'py-2 px-4 text-base',
+  };
+
+  const classNames = `inline-flex gap-2 items-center relative  rounded-lg shadow border  ${sizeClasses[size]} ${
+    disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white'
+  } ${className}`;
+
+  return (
+    <>
+      <div className='inline-flex flex-col w-full'>
+        {label && <label className='mb-1.5 text-gray-700 text-Text-sm font-medium font-inter'>{label}</label>}
+        <div className={classNames}>
+          {icon && <span>{icon}</span>}
+          <select
+            {...(register ? register(name) : { value, onChange })}
+            {...(onChange && { onChange })}
+            {...(value && { value })}
+            className={`w-full`}
+            disabled={disabled}
+            name={name}
+            placeholder={placeholder}
+            {...rest}
+          >
+            {placeholder && (
+              <option value='' disabled>
+                {placeholder}
+              </option>
+            )}
+            {options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          {helpIcon && <HelpCircle />}
+        </div>
+        {hintText && (
+          <p className={`mt-1.5 text-Text-sm self-stretch ${disabled ? 'text-gray-600' : 'text-gray-600'}`}>
+            {hintText}
+          </p>
+        )}
+      </div>
+      <style jsx>{`
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus,
+        select:-webkit-autofill:active {
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: '#101828';
+          transition: background-color 5000s ease-in-out 0s;
+          box-shadow: inset 0 0 20px 20px transparent;
+        }
+
+        select {
+          // -webkit-appearance: none;
+          // -moz-appearance: none;
+          // appearance: none;
+          outline: 0;
+          background-color: transparent;
+          font-size: 1rem;
+          line-height: 1.5;
+          color: '#101828';
+          transition:
+            border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+        }
+
+        select:focus {
+          outline: 0;
+          background-color: transparent;
+          color: '#101828';
+        }
+
+        select:disabled {
+          background-color: transparent;
+          opacity: 1;
+          color: '#667085';
+        }
+
+        select option {
+          color: '#101828';
+        }
+
+        select option:disabled {
+          color: '#667085';
+        }
+
+        select option:checked {
+          color: '#101828';
+        }
+
+        select option:checked:disabled {
+          color: '#667085';
+        }
+
+        select option:disabled {
+          color: '#667085';
+        }
+
+        select option:disabled:checked {
           color: '#667085';
         }
       `}</style>

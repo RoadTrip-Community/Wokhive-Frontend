@@ -84,7 +84,7 @@ const Contact: NextPage = () => {
             <div className='flex flex-col gap-6 w-full'>
               <Input label='Name' placeholder='Enter your name' name='name' />
               <Input label='Email' placeholder='Enter your email' name='email' />
-              <TextArea label='Message' placeholder='Enter your message' name='message' />
+              <TextArea label='Message' placeholder='Enter your message' name='message' size='sm' />
             </div>
 
             <Button className='w-full'>Submit</Button>
