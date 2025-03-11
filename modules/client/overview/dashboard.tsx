@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
+import slugify from 'slugify';
 
 const project = [
   {
@@ -80,13 +81,12 @@ const Dashboard: NextPage = () => {
         <div className='flex flex-col gap-4'>
           <div>
             <Link
-              href={ROUTES.CLIENT_NEW_PROJECT}
+              href={ROUTES.CLIENT_NEW_JOB}
               className='bg-primary-purple-60 rounded-lg px-4 py-3 text-center text-white shadow-shadow/xs font-inter text-sm font-semibold'
             >
               Post a new job
             </Link>
           </div>
-         
 
           <div className='flex justify-between items-center'>
             <h1 className='text-gray-700 font-romela text-2xl'>Ongoing projects</h1>
@@ -100,11 +100,15 @@ const Dashboard: NextPage = () => {
           <div className='overflow-x-auto mt-5 hide-scrollbar'>
             <div className='flex space-x-4'>
               {project.map((project, index) => (
-                <div key={index} className='flex-shrink-0 flex flex-col gap-2'>
+                <Link
+                  href={`${ROUTES.CLIENT_PROJECTS}/${slugify(project.title, { lower: true })}`}
+                  key={index}
+                  className='flex-shrink-0 flex flex-col gap-2'
+                >
                   <Image src={project.image} alt={project.title} width={332} height={189} className='rounded-xl' />
                   <h1 className='text-gray-900 text-xl font-semibold'>{project.title}</h1>
                   <p className='text-gray-500 text-base font-normal'>{project.subtitle}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -1,9 +1,9 @@
-"use client";
-import { ROUTES } from "@/constants/routes";
-import Link from "next/link";
-import { useState } from "react";
-import GridView from "./grid";
-import ListView from "./list";
+'use client';
+import { ROUTES } from '@/constants/routes';
+import Link from 'next/link';
+import { useState } from 'react';
+import GridView from './grid';
+import ListView from './list';
 
 interface Job {
   id: string;
@@ -17,13 +17,13 @@ interface Job {
 
 const jobs: Job[] = [
   {
-    image: "/assets/images/twitter.png",
-    title: "Web Designer needed for a contract role",
-    type: "contract",
-    date: "3 months",
-    amount: "130000",
-    status: "active",
-    id: "1"
+    image: '/assets/images/twitter.png',
+    title: 'Web Designer needed for a contract role',
+    type: 'contract',
+    date: '3 months',
+    amount: '130000',
+    status: 'active',
+    id: '1',
   },
   // {
   //   image: "/assets/images/twitter.png",
@@ -51,51 +51,43 @@ const jobs: Job[] = [
   // },
 ];
 
-
-
-
 const Jobposting = () => {
-  const [activeTab, setActiveTab] = useState("all");
-  const [view, setViewType] = useState("grid"); // Default to grid view
+  const [activeTab, setActiveTab] = useState('all');
+  const [view, setViewType] = useState('grid'); // Default to grid view
 
-  const filteredJobs: Job[] = jobs?.filter(
-    (job) => activeTab === "all" || job.status === activeTab
-  );
+  const filteredJobs: Job[] = jobs?.filter((job) => activeTab === 'all' || job.status === activeTab);
 
   return (
-    <div className="p-5">
-      <div className="flex justify-between items-center">
-      <select
-          className=""
+    <div className='p-5'>
+      <div className='flex justify-between items-center'>
+        <select
+          className=''
           style={{
-            color: "#101828",
-            fontFamily: "Whyte Inktrap",
-            fontSize: "30px",
-            fontStyle: "normal",
+            color: '#101828',
+            fontFamily: 'Whyte Inktrap',
+            fontSize: '30px',
+            fontStyle: 'normal',
             fontWeight: 500,
-            lineHeight: "38px",
+            lineHeight: '38px',
           }}
           onChange={(e) => setActiveTab(e.target.value)}
           value={activeTab}
         >
-          <option value="all">All postings</option>
-          <option value="active">Active postings</option>
-          <option value="closed">Closed postings</option>
+          <option value='all'>All postings</option>
+          <option value='active'>Active postings</option>
+          <option value='closed'>Closed postings</option>
         </select>
 
-        <Link
-          href={ROUTES.CLIENT_NEW_PROJECT}
-          className="rounded-lg px-4 py-3 bg-primary-purple-60 text-white"
-        >
-          Post a new project
+        <Link href={ROUTES.CLIENT_NEW_JOB} className='rounded-lg px-4 py-3 bg-primary-purple-60 text-white'>
+          Post a new Job
         </Link>
       </div>
 
       {/* Toggle View (Grid/List) */}
-      <div className="flex justify-end gap-5 mt-5">
+      <div className='flex justify-end gap-5 mt-5'>
         {/* Grid View Icon */}
-        <button onClick={() => setViewType("grid")}>
-        <svg
+        <button onClick={() => setViewType('grid')}>
+          <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
             height='25'
@@ -143,8 +135,8 @@ const Jobposting = () => {
         </button>
 
         {/* List View Icon */}
-        <button onClick={() => setViewType("list")}>
-        <svg
+        <button onClick={() => setViewType('list')}>
+          <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
             height='24'
@@ -172,8 +164,8 @@ const Jobposting = () => {
       </div>
 
       {/* Render View */}
-      <div className="mt-5">
-        {view === "grid" ? <GridView filteredJobs={filteredJobs} /> : <ListView filteredJobs={filteredJobs} />}
+      <div className='mt-5'>
+        {view === 'grid' ? <GridView filteredJobs={filteredJobs} /> : <ListView filteredJobs={filteredJobs} />}
       </div>
     </div>
   );

@@ -45,6 +45,7 @@ export const ROUTES = {
   VIEW_APPLICANT_PROFILE: '/client/applicants',
   CLIENT_PROJECTS: '/client/projects',
   CLIENT_NEW_PROJECT: '/client/new-project',
+  CLIENT_NEW_JOB: '/client/new-job',
   CLIENT_MESSAGE: '/client/messages',
   CLIENT_CONTRACTS: '/client/contracts',
   CLIENT_INVOICE: '/client/invoice',
