@@ -1,23 +1,13 @@
 import { useState } from 'react';
+import Calender from './calender';
+import TimelineView from './timelineView';
 
 const ProjectTimeline = () => {
   const [activeView, setActiveView] = useState('timeline');
 
   return (
     <div>
-      <div className='flex justify-between gap-4 items-center'>
-        <div className='flex items-center gap-2'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'>
-            <path d='M15 18L9 12L15 6' stroke='#344054' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
-          </svg>
-
-          <p className='font-semibold text-gray-700 text-Text-xl'>July 2023</p>
-
-          <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'>
-            <path d='M9 18L15 12L9 6' stroke='#344054' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
-          </svg>
-        </div>
-
+      <div className='flex justify-end gap-4 items-center'>
         <div className='flex gap-2'>
           <button
             onClick={() => setActiveView('calender')}
@@ -68,6 +58,9 @@ const ProjectTimeline = () => {
           </button>
         </div>
       </div>
+
+      {activeView === 'calender' && <Calender />}
+      {activeView === 'timeline' && <TimelineView />}
     </div>
   );
 };
